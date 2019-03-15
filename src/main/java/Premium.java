@@ -1,4 +1,4 @@
 
-public class Premium extends Surcharge{
+class Premium extends Surcharge{
 
 }
