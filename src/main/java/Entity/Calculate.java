@@ -1,3 +1,4 @@
+package Entity;
 
 class Calculate {
     static {

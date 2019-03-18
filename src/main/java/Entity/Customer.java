@@ -1,3 +1,4 @@
+package Entity;
 
 class Customer {
     private String name;

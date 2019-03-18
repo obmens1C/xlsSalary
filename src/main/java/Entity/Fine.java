@@ -1,3 +1,5 @@
+package Entity;
+
 import java.util.Date;
 
 class Fine extends Surcharge {

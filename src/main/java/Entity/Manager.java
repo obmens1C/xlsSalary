@@ -1,7 +1,10 @@
+package Entity;
+
 import java.util.Objects;
 
 class Manager {
-    private int id;
+    private static int id = 0;
+
     private String name;
     private int salary;
     private int percent;
@@ -12,10 +15,10 @@ class Manager {
         this.salary = 0;
     }
 
-    Manager(String name, int salary) {
+    Manager(String name, int percent) {
         this.name = name;
-        this.percent = 0;
-        this.salary = salary;
+        this.percent = percent;
+        this.salary = 0;
     }
 
     Manager(String name, int salary, int percent) {
@@ -42,8 +45,8 @@ class Manager {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public static void setId() {
+        Manager.id = Manager.id++;
     }
 
     public String getName() {
