@@ -1,10 +1,10 @@
 package Entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 class Premium extends Surcharge {
-
-    Premium(Date date, int sum, String comment) {
-        super(date, sum, comment);
+    public Premium(LocalDate date, Manager manager, int sum, String comment) {
+        super(date, manager, sum, comment);
     }
+
 }

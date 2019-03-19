@@ -10,18 +10,21 @@ class Manager {
     private int percent;
 
     Manager(String name) {
+        setId();
         this.name = name;
         this.percent = 0;
         this.salary = 0;
     }
 
     Manager(String name, int percent) {
+        setId();
         this.name = name;
         this.percent = percent;
         this.salary = 0;
     }
 
     Manager(String name, int salary, int percent) {
+        setId();
         this.name = name;
         this.percent = percent;
         this.salary = salary;
@@ -45,7 +48,7 @@ class Manager {
         return id;
     }
 
-    public static void setId() {
+    private static void setId() {
         Manager.id = Manager.id++;
     }
 
