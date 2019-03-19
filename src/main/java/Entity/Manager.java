@@ -1,30 +1,42 @@
 package Entity;
 
+import javax.persistence.*;
 import java.util.Objects;
 
-class Manager {
-    private static int id = 0;
-
+@Entity
+@Table(name = "managers")
+public class Manager {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "salary")
     private int salary;
+    @Column(name = "percent")
     private int percent;
 
+    Manager() {
+
+    }
+
     Manager(String name) {
-        setId();
+       // setId();
         this.name = name;
         this.percent = 0;
         this.salary = 0;
     }
 
     Manager(String name, int percent) {
-        setId();
+      //  setId();
         this.name = name;
         this.percent = percent;
         this.salary = 0;
     }
 
     Manager(String name, int salary, int percent) {
-        setId();
+      //  setId();
         this.name = name;
         this.percent = percent;
         this.salary = salary;
@@ -44,12 +56,12 @@ class Manager {
                 '}';
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    private static void setId() {
-        Manager.id = Manager.id++;
+    private void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

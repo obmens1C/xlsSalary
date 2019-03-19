@@ -52,7 +52,7 @@ abstract class Surcharge {
 
     @Override
     public String toString() {
-        return "Surcharge{" +
+        return getClass().getName() + " Surcharge{" +
                 "date=" + date +
                 ", sum=" + getSum() +
                 ", comment='" + comment + '\'' +
