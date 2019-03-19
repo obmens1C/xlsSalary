@@ -1,7 +1,5 @@
 package Entity;
 
-import Entity.Surcharge;
-
 import java.util.Date;
 
 class Premium extends Surcharge {

@@ -1,7 +1,5 @@
 package Entity;
 
-import Entity.Customer;
-
 import java.util.Date;
 
 class Order {
