@@ -1,7 +1,6 @@
-package Entity;
+package entity;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 class Fine extends Surcharge {
     Fine(LocalDate date, Manager manager, int sum, String comment) {

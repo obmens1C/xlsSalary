@@ -1,6 +1,6 @@
-package DAO;
+package dao;
 
-import Entity.Manager;
+import entity.Manager;
 import java.sql.SQLException;
 import java.util.Collection;
 

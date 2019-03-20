@@ -1,7 +1,7 @@
-package DAOImpl;
+package daoImpl;
 
-import DAO.ManagerDAO;
-import Entity.Manager;
+import dao.ManagerDAO;
+import entity.Manager;
 import org.hibernate.Session;
 import util.HibernateUtil;
 import java.sql.SQLException;
@@ -13,7 +13,8 @@ public class ManagerDAOImpl implements ManagerDAO{
     private Session session;
 
     public ManagerDAOImpl() {
-        session = HibernateUtil.getSessionFactory().OpenSession();
+       // session = HibernateUtil.getSessionFactory().OpenSession();
+        session = HibernateUtil.getSessionFactory().openSession();
     }
 
     @Override
@@ -33,13 +34,14 @@ public class ManagerDAOImpl implements ManagerDAO{
     @Override
     public Manager getManagerById(Long id) throws SQLException, Exception {
         Manager manager = null;
-        manager = (Manager) Session.load(Manager.class, id);
+       // manager = (Manager) Session.load(Manager.class, id);
+        manager = (Manager) session.load(Manager.class, id);
         return manager;
     }
 
     @Override
     public Collection<Manager> getAllManagers() throws SQLException, Exception {
-        List<Manager> managers = new ArrayList<Manager>();
+        List<Manager> managers = new ArrayList<>();
         managers = session.createCriteria(Manager.class).list();
         return managers;
     }
