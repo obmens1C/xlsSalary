@@ -2,6 +2,7 @@ package util;
 
 import entity.Manager;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
@@ -11,11 +12,15 @@ public class HibernateUtil {
         try {
             //TODO
             //sessionFactory = new Configuration().configure().buildSessionFactory();
-            Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-            sessionFactory = cfg.buildSessionFactory();
+            /*Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+            sessionFactory = cfg.buildSessionFactory();*/
+            Configuration cfgHibernate = new Configuration().configure();
+            cfgHibernate.addAnnotatedClass(Manager.class);
+            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfgHibernate.getProperties());
+            sessionFactory = cfgHibernate.buildSessionFactory(builder.build());
 
         } catch (Throwable e) {
-            System.err.println("Initial SessionFactory creation failed. " + e);
+            System.err.println("Err Initial SessionFactory creation failed. " + e);
             throw new ExceptionInInitializerError(e);
         }
     }

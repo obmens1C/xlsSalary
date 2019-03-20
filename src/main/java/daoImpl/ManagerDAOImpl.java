@@ -13,7 +13,6 @@ public class ManagerDAOImpl implements ManagerDAO{
     private Session session;
 
     public ManagerDAOImpl() {
-       // session = HibernateUtil.getSessionFactory().OpenSession();
         session = HibernateUtil.getSessionFactory().openSession();
     }
 
