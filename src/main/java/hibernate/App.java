@@ -14,10 +14,10 @@ public class App {
         try {
             Collection<Manager> managers = Factory.getInstance().getManagerDAO().getAllManagers();
             Iterator<Manager> managerIterator = managers.iterator();
-            System.out.println("list of warehouses:");
+            System.out.println("list of managers:");
             while (managerIterator.hasNext()) {
                 Manager manager = (Manager) managerIterator.next();
-                System.out.println("manager number " + manager.getId() + ", name is " + manager.getName());
+                System.out.println("manager #" + manager.getId() + ", name is " + manager.getName() + ", salary:" + manager.getSalary() + ", percent:" + manager.getPercent());
             }
         } catch (SQLException e) {
             e.printStackTrace();

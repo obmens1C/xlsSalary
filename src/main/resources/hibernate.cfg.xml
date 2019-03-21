@@ -4,12 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:mysql://10.0.4.45/CalculateSalary</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/calculatesalary</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="connection.username">user0</property>
-    <property name="connection.password">5290</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password"/>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
+
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
     <mapping class="entity.Manager"/>
 

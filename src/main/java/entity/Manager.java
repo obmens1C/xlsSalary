@@ -17,26 +17,23 @@ public class Manager {
     @Column(name = "percent")
     private int percent;
 
-    Manager() {
+    public Manager() {
 
     }
 
     Manager(String name) {
-       // setId();
         this.name = name;
         this.percent = 0;
         this.salary = 0;
     }
 
     Manager(String name, int percent) {
-      //  setId();
         this.name = name;
         this.percent = percent;
         this.salary = 0;
     }
 
     Manager(String name, int salary, int percent) {
-      //  setId();
         this.name = name;
         this.percent = percent;
         this.salary = salary;

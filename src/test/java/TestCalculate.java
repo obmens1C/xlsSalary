@@ -8,5 +8,6 @@ public class TestCalculate {
 
         App application = new App();
         application.printAllManagers();
+        System.exit(0);
     }
 }
