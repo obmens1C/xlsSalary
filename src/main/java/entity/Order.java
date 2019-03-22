@@ -58,7 +58,7 @@ class Order {
         if (getClass() != obj.getClass()) return false;
 
         Order ord = (Order) obj;
-        return Objects.equals(date, ord.date) && sum == ord.sum && Objects.equals(manager, ord.manager) && Objects.equals(customer, ord.customer);
+        return Objects.equals(date, ord.date) && sum == ord.sum && manager.equals(obj) && customer.equals(obj);
     }
 
     public Long getId() {
