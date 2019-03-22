@@ -51,6 +51,16 @@ class Order {
         return Objects.hash(date, customer, manager, sum);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+
+        Order ord = (Order) obj;
+        return Objects.equals(date, ord.date) && sum == ord.sum && Objects.equals(manager, ord.manager) && Objects.equals(customer, ord.customer);
+    }
+
     public Long getId() {
         return id;
     }
