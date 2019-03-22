@@ -1,18 +1,28 @@
 package entity;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
+@Table(name = "orders")
 class Order {
-    private static int id = 0;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "date")
     private LocalDate date;
+    @ManyToOne
+    @JoinColumn(name = "customer")
     private Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "manager")
     private Manager manager;
+    @Column(name = "sum")
     private int sum;
 
     Order(LocalDate date, Customer customer, Manager manager) {
-        setId();
         this.date = date;
         this.customer = customer;
         this.manager = manager;
@@ -20,7 +30,6 @@ class Order {
     }
 
     Order(LocalDate date, Customer customer, Manager manager, int sum) {
-        setId();
         this.date = date;
         this.customer = customer;
         this.manager = manager;
@@ -42,12 +51,12 @@ class Order {
         return Objects.hash(date, customer, manager, sum);
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    private static void setId() {
-        Order.id = Order.id++;
+    private void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDate getDate() {

@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -16,10 +17,8 @@ public class Manager {
     private int salary;
     @Column(name = "percent")
     private int percent;
-
-    public Manager() {
-
-    }
+    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
+    private Collection<Order> orders;
 
     Manager(String name) {
         this.name = name;
@@ -39,6 +38,9 @@ public class Manager {
         this.salary = salary;
     }
 
+    public Manager() {
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(name, percent, salary);
@@ -51,6 +53,16 @@ public class Manager {
                 ", salary=" + salary +
                 ", percent=" + percent +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+
+        Manager mng = (Manager) obj;
+        return Objects.equals(name, mng.name) && salary == mng.salary && percent == mng.percent;
     }
 
     public Long getId() {
@@ -83,5 +95,13 @@ public class Manager {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public Collection<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
     }
 }

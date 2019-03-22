@@ -1,21 +1,29 @@
 package entity;
 
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
+@Entity
+@Table(name = "customers")
 class Customer {
-    private static int id = 0;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "percent")
     private int percent;
+    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
+    private Collection<Order> orders;
 
     Customer(String name) {
-        setId();
         this.name = name;
         this.percent = 0;
     }
 
     Customer(String name, int percent) {
-        setId();
         this.name = name;
         this.percent = percent;
     }
@@ -33,12 +41,22 @@ class Customer {
         return Objects.hash(name, percent);
     }
 
-    public int getId() {
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+
+        Customer cst = (Customer) obj;
+        return Objects.equals(name, cst.name) && percent == cst.percent;
+    }
+
+    public Long getId() {
         return id;
     }
 
-   private static void setId() {
-        Customer.id = Customer.id++;
+    private void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -51,5 +69,13 @@ class Customer {
 
     public void setPercent(int percent) {
         this.percent = percent;
+    }
+
+    public Collection<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
     }
 }
