@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "orders")
-class Order {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
