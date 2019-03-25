@@ -23,7 +23,6 @@ public class Payment {
     private Customer customer;
 
     Payment(LocalDate date, int sum, Customer customer) {
-        //setId();
         this.date = date;
         this.sum = sum;
         this.customer = customer;
@@ -31,7 +30,6 @@ public class Payment {
     }
 
     Payment(LocalDate date, Order order, int sum, Customer customer) {
-        //setId();
         this.date = date;
         this.order = order;
         this.sum = sum;
@@ -39,7 +37,6 @@ public class Payment {
     }
 
     Payment(LocalDate date, Order order, int sum) {
-        //setId();
         this.date = date;
         this.order = order;
         this.sum = sum;
