@@ -1,18 +1,29 @@
 package entity;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
-class Payment {
-    private static int id = 0;
-
+@Entity
+@Table(name = "payments")
+public class Payment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "date")
     private LocalDate date;
+    @ManyToMany
+    @JoinColumn(name = "order")
     private Order order;
+    @Column(name = "sum")
     private int sum;
+    @ManyToOne
+    @JoinColumn(name = "customer")
     private Customer customer;
 
     Payment(LocalDate date, int sum, Customer customer) {
-        setId();
+        //setId();
         this.date = date;
         this.sum = sum;
         this.customer = customer;
@@ -20,7 +31,7 @@ class Payment {
     }
 
     Payment(LocalDate date, Order order, int sum, Customer customer) {
-        setId();
+        //setId();
         this.date = date;
         this.order = order;
         this.sum = sum;
@@ -28,7 +39,7 @@ class Payment {
     }
 
     Payment(LocalDate date, Order order, int sum) {
-        setId();
+        //setId();
         this.date = date;
         this.order = order;
         this.sum = sum;
@@ -50,12 +61,22 @@ class Payment {
                 '}';
     }
 
-    public int getId() {
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+
+        Payment payment = (Payment) obj;
+        return Objects.equals(date, payment.date) && sum == payment.sum && payment.equals(obj) && payment.equals(obj);
+    }
+
+    public Long getId() {
         return id;
     }
 
-    private static void setId() {
-        Payment.id = Payment.id++;
+    private void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDate getDate() {
