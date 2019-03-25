@@ -8,7 +8,7 @@ import java.util.Objects;
 @Table(name = "managers")
 public class Manager {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "name")
@@ -17,8 +17,6 @@ public class Manager {
     private int salary;
     @Column(name = "percent")
     private int percent;
-    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
-    private Collection<Order> orders;
 
     Manager(String name) {
         this.name = name;
@@ -32,7 +30,7 @@ public class Manager {
         this.salary = 0;
     }
 
-    Manager(String name, int salary, int percent) {
+    public Manager(String name, int salary, int percent) {
         this.name = name;
         this.percent = percent;
         this.salary = salary;
@@ -95,13 +93,5 @@ public class Manager {
 
     public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    public Collection<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Collection<Order> orders) {
-        this.orders = orders;
     }
 }

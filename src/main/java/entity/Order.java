@@ -21,12 +21,16 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private int sum;
+    @ManyToMany
+    @JoinColumn(name = "payments")
+    private Payment payment;
 
     Order(LocalDate date, Customer customer, Manager manager) {
         this.date = date;
         this.customer = customer;
         this.manager = manager;
         this.sum = 0;
+        this.payment = null;
     }
 
     Order(LocalDate date, Customer customer, Manager manager, int sum) {
@@ -34,6 +38,15 @@ public class Order {
         this.customer = customer;
         this.manager = manager;
         this.sum = sum;
+        this.payment = null;
+    }
+
+    Order(LocalDate date, Customer customer, Manager manager, int sum, Payment payment) {
+        this.date = date;
+        this.customer = customer;
+        this.manager = manager;
+        this.sum = sum;
+        this.payment = payment;
     }
 
     @Override
@@ -99,5 +112,13 @@ public class Order {
 
     public void setSum(int sum) {
         this.sum = sum;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 }

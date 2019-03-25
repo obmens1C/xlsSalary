@@ -7,6 +7,7 @@ public class TestCalculate {
         calculate.start();*/
 
         App application = new App();
+        //application.createManagers();
         application.printAllManagers();
         System.exit(0);
     }
