@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Managers>
+	<Manager>
+		<Name>Дружинин Олег Витальевич</Name>
+		<Salary>15 500</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Дубровин Александр Николаевич</Name>
+		<Salary>15 500</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Рубцов Роман Дмитриевич</Name>
+		<Salary>20 000</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Орехов Владислав Борисович</Name>
+		<Salary>20 000</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Белобородова Марина Юрьевна</Name>
+		<Salary>0</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Залялютдинов Тимур Ренатович</Name>
+		<Salary>25 000</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Залялютдинов Дмитрий Ренатович</Name>
+		<Salary>20 000</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Бравиков Александр Анатольевич</Name>
+		<Salary>15 500</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Хворов Владимир Владимирович</Name>
+		<Salary>25 000</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Рыбаков Семен Сергеевич</Name>
+		<Salary>20 000</Salary>
+		<Percent>6</Percent>
+	</Manager>
+	<Manager>
+		<Name>Шиндяпин Александр Витальевич</Name>
+		<Salary>15 500</Salary>
+		<Percent>6</Percent>
+	</Manager>
+</Managers>
