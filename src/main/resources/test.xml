@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<managers>
+	<manager id="d07b9162-6269-11e8-0686-a4bf011ca70c" name="Дружинин Олег Витальевич" salary="15 500" percent="6"/>
+	<manager id="0530b632-2aa9-11e9-1d85-a4bf011ca70c" name="Дубровин Александр Николаевич" salary="15 500" percent="6"/>
+	<manager id="473d0992-d368-11e8-2094-a4bf011ca70c" name="Рубцов Роман Дмитриевич" salary="20 000" percent="6"/>
+	<manager id="92dcf4cc-a81f-11e7-2f88-a4bf011ca70c" name="Орехов Владислав Борисович" salary="20 000" percent="6"/>
+	<manager id="a3599ee4-8d90-11e7-3491-a4bf011ca70c" name="Белобородова Марина Юрьевна" salary="0" percent="6"/>
+	<manager id="39d0a930-e945-11e6-3883-c860000abaae" name="Залялютдинов Тимур Ренатович" salary="25 000" percent="6"/>
+	<manager id="6dbd1c5c-b116-11e8-4897-a4bf011ca70c" name="Залялютдинов Дмитрий Ренатович" salary="20 000" percent="6"/>
+	<manager id="93a83782-6dea-11e7-569c-a4bf011ca70c" name="Бравиков Александр Анатольевич" salary="15 500" percent="6"/>
+	<manager id="974ef116-d8aa-11e2-c886-c860000abaae" name="Хворов Владимир Владимирович" salary="25 000" percent="6"/>
+	<manager id="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c" name="Рыбаков Семен Сергеевич" salary="20 000" percent="6"/>
+	<manager id="3dab5774-76e4-11e4-ee8f-c860000abaae" name="Шиндяпин Александр Витальевич" salary="15 500" percent="6"/>
+</managers>

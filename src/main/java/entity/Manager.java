@@ -7,9 +7,7 @@ import java.util.Objects;
 @Table(name = "managers")
 public class Manager {
     @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "id", unique = true)
     private String id;
     @Column(name = "name")
     private String name;
