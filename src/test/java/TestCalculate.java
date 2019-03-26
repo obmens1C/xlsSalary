@@ -1,13 +1,13 @@
-import entity.Calculate;
 import hibernate.App;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 
 public class TestCalculate {
-    public static void main(String[] args) {
-       /* Calculate calculate = new Calculate();
-        calculate.start();*/
-
+    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
         App application = new App();
-        //application.createManagers();
+        application.parseXML();
         application.printAllManagers();
         System.exit(0);
     }

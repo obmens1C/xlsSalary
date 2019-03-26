@@ -28,7 +28,7 @@ public class ManagerDAOImpl implements ManagerDAO{
     @Override
     public void addManager(Manager manager) throws SQLException, Exception {
         session.beginTransaction();
-        session.save(manager);
+        session.saveOrUpdate(manager);
         session.getTransaction().commit();
     }
 
@@ -40,9 +40,15 @@ public class ManagerDAOImpl implements ManagerDAO{
     }
 
     @Override
+    public void mergeManager(Manager manager) throws SQLException, Exception {
+        session.beginTransaction();
+        session.merge(manager);
+        session.getTransaction().commit();
+    }
+
+    @Override
     public Manager getManagerById(Long id) throws SQLException, Exception {
         Manager manager = null;
-       // manager = (Manager) Session.load(Manager.class, id);
         manager = (Manager) session.load(Manager.class, id);
         return manager;
     }
@@ -50,6 +56,7 @@ public class ManagerDAOImpl implements ManagerDAO{
     @Override
     public Collection<Manager> getAllManagers() throws SQLException, Exception {
         List<Manager> managers = session.createCriteria(Manager.class).list();
+        //https://ru.stackoverflow.com/questions/560711/%D0%9A%D0%B0%D0%BA-%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B9-%D0%B2-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B5-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-jpa
         return managers;
     }
 

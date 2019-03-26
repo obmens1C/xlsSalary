@@ -1,24 +1,50 @@
 package hibernate;
 
+import entity.Manager;
+import org.hibernate.Session;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import entity.Manager;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
 public class App {
-    public void createManagers() {
-        Session session = null;
+    public void parseXML() throws ParserConfigurationException, IOException, SAXException {
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        Document document = documentBuilder.parse(new File("src\\main\\resources\\test.xml"));
+
         List<Manager> managers = new ArrayList<>();
-        Manager Kolya = new Manager("Kolya", 20000, 6);
-        Manager Urii = new Manager("Urii", 20000, 6);
-        managers.add(Kolya);
-        managers.add(Urii);
+
+        NodeList managerNodeList = document.getDocumentElement().getElementsByTagName("manager");
+        for (int i = 0; i <managerNodeList.getLength() ; i++) {
+            Node managerNode = managerNodeList.item(i);
+            NamedNodeMap managerNodeMap = managerNode.getAttributes();
+            String managerUID = managerNodeMap.getNamedItem("id").getNodeValue();
+            String managerName = managerNodeMap.getNamedItem("name").getNodeValue();
+            int managerSalary = Integer.parseInt(managerNodeMap.getNamedItem("salary").getNodeValue().replaceAll("[\\s|\\u00A0]+", ""));
+            int managerPercent = Integer.parseInt(managerNodeMap.getNamedItem("percent").getNodeValue());
+            Manager manager = new Manager(managerUID, managerName, managerSalary, managerPercent);
+            managers.add(manager);
+        }
+
+        addChangeManagers(managers);
+    }
+
+    public void addChangeManagers(List<Manager> managers) {
+        Session session = null;
+
         for (Manager manager : managers) {
             try {
                 Factory.getInstance().getManagerDAO().addManager(manager);

@@ -1,16 +1,16 @@
 package entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 @Table(name = "managers")
 public class Manager {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "id")
-    private Long id;
+    private String id;
     @Column(name = "name")
     private String name;
     @Column(name = "salary")
@@ -18,19 +18,22 @@ public class Manager {
     @Column(name = "percent")
     private int percent;
 
-    Manager(String name) {
+    Manager(String id, String name) {
+        this.id = id;
         this.name = name;
         this.percent = 0;
         this.salary = 0;
     }
 
-    Manager(String name, int percent) {
+    Manager(String id, String name, int percent) {
+        this.id = id;
         this.name = name;
         this.percent = percent;
         this.salary = 0;
     }
 
-    public Manager(String name, int salary, int percent) {
+    public Manager(String id, String name, int salary, int percent) {
+        this.id = id;
         this.name = name;
         this.percent = percent;
         this.salary = salary;
@@ -63,11 +66,11 @@ public class Manager {
         return Objects.equals(name, mng.name) && salary == mng.salary && percent == mng.percent;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    private void setId(Long id) {
+    private void setId(String id) {
         this.id = id;
     }
 
