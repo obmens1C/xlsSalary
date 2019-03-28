@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.rmi.server.UID;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -8,9 +9,8 @@ import java.util.Objects;
 @Table(name = "customers")
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "id", unique = true)
+    private String id;
     @Column(name = "name")
     private String name;
     @Column(name = "percent")
@@ -18,7 +18,8 @@ public class Customer {
     @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
     private Collection<Order> orders;
 
-    Customer(String name) {
+    public Customer(String customerUID, String name, int customerPercent) {
+        this.id = customerUID;
         this.name = name;
         this.percent = 0;
     }
@@ -51,11 +52,11 @@ public class Customer {
         return Objects.equals(name, cst.name) && percent == cst.percent;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    private void setId(Long id) {
+    private void setId(String id) {
         this.id = id;
     }
 

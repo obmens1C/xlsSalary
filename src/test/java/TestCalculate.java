@@ -9,6 +9,7 @@ public class TestCalculate {
         App application = new App();
         application.parseXML();
         application.printAllManagers();
+        application.printAllCustomers();
         System.exit(0);
     }
 }

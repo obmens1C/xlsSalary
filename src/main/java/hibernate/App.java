@@ -1,5 +1,6 @@
 package hibernate;
 
+import entity.Customer;
 import entity.Manager;
 import org.hibernate.Session;
 import org.w3c.dom.Document;
@@ -40,6 +41,22 @@ public class App {
         }
 
         addChangeManagers(managers);
+
+        List<Customer> customers = new ArrayList<>();
+
+        NodeList cusNodeList = document.getDocumentElement().getElementsByTagName("customer");
+        for (int i = 0; i <cusNodeList.getLength() ; i++) {
+            Node customerNode = managerNodeList.item(i);
+            NamedNodeMap customerNodeMap = customerNode.getAttributes();
+            String customerUID = customerNodeMap.getNamedItem("id").getNodeValue();
+            String customerName = customerNodeMap.getNamedItem("name").getNodeValue();
+            int customerPercent = Integer.parseInt(customerNodeMap.getNamedItem("percent").getNodeValue());
+            Customer customer = new Customer(customerUID, customerName, customerPercent);
+            customers.add(customer);
+        }
+
+        addChangeCustomers(customers);
+
     }
 
     public void addChangeManagers(List<Manager> managers) {
@@ -48,6 +65,24 @@ public class App {
         for (Manager manager : managers) {
             try {
                 Factory.getInstance().getManagerDAO().addManager(manager);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+            }
+        }
+    }
+
+    public void addChangeCustomers(List<Customer> customers) {
+        Session session = null;
+
+        for (Customer customer : customers) {
+            try {
+                Factory.getInstance().getCustomerDAO().addCustomer(customer);
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (Exception e) {
@@ -69,6 +104,27 @@ public class App {
             while (managerIterator.hasNext()) {
                 Manager manager = (Manager) managerIterator.next();
                 System.out.println("manager #" + manager.getId() + ", name is " + manager.getName() + ", salary:" + manager.getSalary() + ", percent:" + manager.getPercent());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
+    public void printAllCustomers() {
+        Session session = null;
+        try {
+            Collection<Customer> customers = Factory.getInstance().getCustomerDAO().getAllCustomers();
+            Iterator<Customer> customerIterator = customers.iterator();
+            System.out.println("list of customers:");
+            while (customerIterator.hasNext()) {
+                Customer customer = (Customer) customerIterator.next();
+                System.out.println(customer);
             }
         } catch (SQLException e) {
             e.printStackTrace();
