@@ -15,8 +15,8 @@ public class Customer {
     private String name;
     @Column(name = "percent")
     private int percent;
-    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
-    private Collection<Order> orders;
+    /*@OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
+    private Collection<Order> orders;*/
 
     public Customer(String customerUID, String name, int customerPercent) {
         this.id = customerUID;
@@ -72,11 +72,11 @@ public class Customer {
         this.percent = percent;
     }
 
-    public Collection<Order> getOrders() {
+    /*public Collection<Order> getOrders() {
         return orders;
     }
 
     public void setOrders(Collection<Order> orders) {
         this.orders = orders;
-    }
+    }*/
 }
