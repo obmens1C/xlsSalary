@@ -44,9 +44,9 @@ public class App {
 
         List<Customer> customers = new ArrayList<>();
 
-        NodeList cusNodeList = document.getDocumentElement().getElementsByTagName("customer");
-        for (int i = 0; i <cusNodeList.getLength() ; i++) {
-            Node customerNode = managerNodeList.item(i);
+        NodeList customerNodeList = document.getDocumentElement().getElementsByTagName("customer");
+        for (int i = 0; i <customerNodeList.getLength() ; i++) {
+            Node customerNode = customerNodeList.item(i);
             NamedNodeMap customerNodeMap = customerNode.getAttributes();
             String customerUID = customerNodeMap.getNamedItem("id").getNodeValue();
             String customerName = customerNodeMap.getNamedItem("name").getNodeValue();
