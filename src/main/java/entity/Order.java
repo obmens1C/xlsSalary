@@ -9,7 +9,9 @@ import java.util.Objects;
 public class Order {
     @Id
     @Column(name = "id", unique = true)
-    private Long id;
+    private String id;
+    @Column(name = "number")
+    private String number;
     @Column(name = "date")
     private LocalDate date;
     @ManyToOne
@@ -23,6 +25,18 @@ public class Order {
     @ManyToMany
     @JoinColumn(name = "payments")
     private Payment payment;
+    @Column(name = "currency")
+    private Currency currency;
+
+    Order(String id, String number, LocalDate date, String customer, String manager, int sum, String currency) {
+        this.id = id;
+        this.number = number;
+        this.date = date;
+        this.customer = customer;
+        this.manager = manager;
+        this.sum = sum;
+        this.currency = currency;
+    }
 
     Order(LocalDate date, Customer customer, Manager manager) {
         this.date = date;
@@ -73,11 +87,11 @@ public class Order {
         return Objects.equals(date, ord.date) && sum == ord.sum && manager.equals(obj) && customer.equals(obj);
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    private void setId(Long id) {
+    private void setId(String id) {
         this.id = id;
     }
 

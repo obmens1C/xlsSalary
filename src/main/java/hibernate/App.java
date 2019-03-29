@@ -16,6 +16,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -65,9 +66,16 @@ public class App {
             NamedNodeMap orderNodeMap = orderNode.getAttributes();
             String orderUID = orderNodeMap.getNamedItem("id").getNodeValue();
             String orderNumber = orderNodeMap.getNamedItem("number").getNodeValue();
-
+            LocalDate orderDate = LocalDate.parse(orderNodeMap.getNamedItem("date").getNodeValue());
+            String orderCustomer = orderNodeMap.getNamedItem("customerid").getNodeValue();
+            String orderManager = orderNodeMap.getNamedItem("managerid").getNodeValue();
+            int orderSum = Integer.parseInt(orderNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", ""));
+            String orderCurrency = orderNodeMap.getNamedItem("curencyid").getNodeValue();
+            Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency);
+            orders.add(order);
         }
 
+        addChangeOrders(orders);
     }
 
     public void addChangeManagers(List<Manager> managers) {
