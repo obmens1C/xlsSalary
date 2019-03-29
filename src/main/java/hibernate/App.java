@@ -2,6 +2,7 @@ package hibernate;
 
 import entity.Customer;
 import entity.Manager;
+import entity.Order;
 import org.hibernate.Session;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -29,7 +30,7 @@ public class App {
         List<Manager> managers = new ArrayList<>();
 
         NodeList managerNodeList = document.getDocumentElement().getElementsByTagName("manager");
-        for (int i = 0; i <managerNodeList.getLength() ; i++) {
+        for (int i = 0; i < managerNodeList.getLength() ; i++) {
             Node managerNode = managerNodeList.item(i);
             NamedNodeMap managerNodeMap = managerNode.getAttributes();
             String managerUID = managerNodeMap.getNamedItem("id").getNodeValue();
@@ -45,7 +46,7 @@ public class App {
         List<Customer> customers = new ArrayList<>();
 
         NodeList customerNodeList = document.getDocumentElement().getElementsByTagName("customer");
-        for (int i = 0; i <customerNodeList.getLength() ; i++) {
+        for (int i = 0; i < customerNodeList.getLength() ; i++) {
             Node customerNode = customerNodeList.item(i);
             NamedNodeMap customerNodeMap = customerNode.getAttributes();
             String customerUID = customerNodeMap.getNamedItem("id").getNodeValue();
@@ -56,6 +57,16 @@ public class App {
         }
 
         addChangeCustomers(customers);
+
+        List<Order> orders = new ArrayList<>();
+        NodeList orderNodeList = document.getDocumentElement().getElementsByTagName("order");
+        for (int i = 0; i < orderNodeList.getLength(); i++) {
+            Node orderNode = orderNodeList.item(i);
+            NamedNodeMap orderNodeMap = orderNode.getAttributes();
+            String orderUID = orderNodeMap.getNamedItem("id").getNodeValue();
+            String orderNumber = orderNodeMap.getNamedItem("number").getNodeValue();
+
+        }
 
     }
 
