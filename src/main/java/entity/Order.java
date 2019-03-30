@@ -65,10 +65,14 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "date=" + date+
+                "id='" + id + '\'' +
+                ", number='" + number + '\'' +
+                ", date=" + date +
                 ", customer=" + customer +
                 ", manager=" + manager +
                 ", sum=" + sum +
+                ", payment=" + payment +
+                ", currency=" + currency +
                 '}';
     }
 
