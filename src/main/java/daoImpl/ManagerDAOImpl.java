@@ -9,9 +9,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class ManagerDAOImpl implements ManagerDAO{
     private Session session;
@@ -42,7 +40,7 @@ public class ManagerDAOImpl implements ManagerDAO{
     }
 
     @Override
-    public Manager getManagerById(Long id) throws SQLException, Exception {
+    public Manager getManagerById(String id) throws SQLException, Exception {
         Manager manager = null;
         manager = (Manager) session.load(Manager.class, id);
         return manager;

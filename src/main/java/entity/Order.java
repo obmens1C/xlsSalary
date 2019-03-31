@@ -28,7 +28,7 @@ public class Order {
     @Column(name = "currency")
     private Currency currency;
 
-    Order(String id, String number, LocalDate date, String customer, String manager, int sum, String currency) {
+    public Order(String id, String number, LocalDate date, Customer customer, Manager manager, int sum, Currency currency) {
         this.id = id;
         this.number = number;
         this.date = date;

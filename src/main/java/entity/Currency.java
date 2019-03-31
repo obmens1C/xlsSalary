@@ -5,10 +5,26 @@ import java.util.Objects;
 public class Currency {
     private String id;
     private String name;
+    private int value;
 
     public Currency(String id, String name) {
         this.id = id;
         this.name = name;
+        this.value = 0;
+    }
+
+    public Currency(String id, String name, int value) {
+        this.id = id;
+        this.name = name;
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     @Override

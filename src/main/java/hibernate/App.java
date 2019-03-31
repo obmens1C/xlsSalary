@@ -1,5 +1,6 @@
 package hibernate;
 
+import entity.Currency;
 import entity.Customer;
 import entity.Manager;
 import entity.Order;
@@ -28,10 +29,25 @@ public class App {
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         Document document = documentBuilder.parse(new File("src\\main\\resources\\test.xml"));
 
+        List<Currency> currencies = new ArrayList<>();
+
+        NodeList currencyNodeList = document.getDocumentElement().getElementsByTagName("currency");
+        for (int i = 0; i < currencyNodeList.getLength(); i++) {
+            Node currencyNode = currencyNodeList.item(i);
+            NamedNodeMap currencyNodeMap = currencyNode.getAttributes();
+            String currencyUID = currencyNodeMap.getNamedItem("id").getNodeValue();
+            String currencyName = currencyNodeMap.getNamedItem("name").getNodeValue();
+            int currencyValue = Integer.parseInt(currencyNodeMap.getNamedItem("value").getNodeValue().replaceAll("[\\s|\\u00A0]+", ""));
+            Currency currency = new Currency(currencyUID, currencyName, currencyValue);
+            currencies.add(currency);
+        }
+
+        addChangeCurrences(currencies);
+
         List<Manager> managers = new ArrayList<>();
 
         NodeList managerNodeList = document.getDocumentElement().getElementsByTagName("manager");
-        for (int i = 0; i < managerNodeList.getLength() ; i++) {
+        for (int i = 0; i < managerNodeList.getLength(); i++) {
             Node managerNode = managerNodeList.item(i);
             NamedNodeMap managerNodeMap = managerNode.getAttributes();
             String managerUID = managerNodeMap.getNamedItem("id").getNodeValue();
@@ -47,7 +63,7 @@ public class App {
         List<Customer> customers = new ArrayList<>();
 
         NodeList customerNodeList = document.getDocumentElement().getElementsByTagName("customer");
-        for (int i = 0; i < customerNodeList.getLength() ; i++) {
+        for (int i = 0; i < customerNodeList.getLength(); i++) {
             Node customerNode = customerNodeList.item(i);
             NamedNodeMap customerNodeMap = customerNode.getAttributes();
             String customerUID = customerNodeMap.getNamedItem("id").getNodeValue();
@@ -67,15 +83,108 @@ public class App {
             String orderUID = orderNodeMap.getNamedItem("id").getNodeValue();
             String orderNumber = orderNodeMap.getNamedItem("number").getNodeValue();
             LocalDate orderDate = LocalDate.parse(orderNodeMap.getNamedItem("date").getNodeValue());
-            String orderCustomer = orderNodeMap.getNamedItem("customerid").getNodeValue();
-            String orderManager = orderNodeMap.getNamedItem("managerid").getNodeValue();
+            String orderCustomerId = orderNodeMap.getNamedItem("customerid").getNodeValue();
+            Customer orderCustomer = getCustomerById(orderCustomerId);
+            String orderManagerId = orderNodeMap.getNamedItem("managerid").getNodeValue();
+            Manager orderManager = getManagerById(orderManagerId);
             int orderSum = Integer.parseInt(orderNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", ""));
-            String orderCurrency = orderNodeMap.getNamedItem("curencyid").getNodeValue();
+            String orderCurrencyId = orderNodeMap.getNamedItem("curencyid").getNodeValue();
+            Currency orderCurrency = getCurrencyById(orderCurrencyId);
             Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency);
             orders.add(order);
         }
 
         addChangeOrders(orders);
+    }
+
+    Customer getCustomerById(String customreId) {
+        Session session = null;
+
+        Customer customer = null;
+        try {
+            customer = Factory.getInstance().getCustomerDAO().getCustomerById(customreId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return customer;
+    }
+
+    Manager getManagerById(String managerId) {
+        Session session = null;
+
+        Manager manager = null;
+        try {
+            manager = Factory.getInstance().getManagerDAO().getManagerById(managerId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return manager;
+    }
+
+    Currency getCurrencyById(String currencyId) {
+        Session session = null;
+
+        Currency currency = null;
+        try {
+            currency = Factory.getInstance().getCurrencyDAO().getCurrencyById(currencyId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return currency;
+    }
+
+    public void addChangeCurrences(List<Currency> currencies) {
+        Session session = null;
+
+        for (Currency currency : currencies) {
+            try {
+                Factory.getInstance().getCurrencyDAO().addCurrency(currency);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+            }
+        }
+    }
+
+    public void addChangeOrders(List<Order> orders) {
+        Session session = null;
+
+        for (Order order : orders) {
+            try {
+                Factory.getInstance().getOrderDAO().addOrder(order);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+            }
+        }
     }
 
     public void addChangeManagers(List<Manager> managers) {
@@ -114,6 +223,27 @@ public class App {
         }
     }
 
+    public void printAllCurrencies() {
+        Session session = null;
+        try {
+            Collection<Currency> currencies = Factory.getInstance().getCurrencyDAO().getAllCurrences();
+            Iterator<Currency> currencyIterator = currencies.iterator();
+            System.out.println("list of currencies:");
+            while (currencyIterator.hasNext()) {
+                Currency currency = (Currency) currencyIterator.next();
+                System.out.println(currency);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
     public void printAllManagers() {
         Session session = null;
         try {
@@ -144,6 +274,27 @@ public class App {
             while (customerIterator.hasNext()) {
                 Customer customer = (Customer) customerIterator.next();
                 System.out.println(customer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
+    public void printAllOrders() {
+        Session session = null;
+        try {
+            Collection<Order> orders = Factory.getInstance().getOrderDAO().getAllOrders();
+            Iterator<Order> orderIterator = orders.iterator();
+            System.out.println("list of orders:");
+            while (orderIterator.hasNext()) {
+                Order order = (Order) orderIterator.next();
+                System.out.println(order);
             }
         } catch (SQLException e) {
             e.printStackTrace();

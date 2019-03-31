@@ -1,13 +1,7 @@
 package hibernate;
 
-import dao.CustomerDAO;
-import dao.ManagerDAO;
-import dao.OrderDAO;
-import dao.PaymentDAO;
-import daoImpl.ManagerDAOImpl;
-import daoImpl.CustomerDAOImpl;
-import daoImpl.OrderDAOImpl;
-import daoImpl.PaymentDAOImpl;
+import dao.*;
+import daoImpl.*;
 
 
 public class Factory {
@@ -16,6 +10,7 @@ public class Factory {
     private static CustomerDAO customerDAO = null;
     private static OrderDAO orderDAO = null;
     private static PaymentDAO paymentDAO = null;
+    private static CurrencyDAO currencyDAO = null;
 
     public static synchronized Factory getInstance() {
         if (instance == null) {
@@ -46,9 +41,16 @@ public class Factory {
     }
 
     public PaymentDAO getPaymentDAO() {
-        if(paymentDAO == null) {
+        if (paymentDAO == null) {
             paymentDAO = new PaymentDAOImpl();
         }
         return paymentDAO;
+    }
+
+    public CurrencyDAO getCurrencyDAO() {
+        if (currencyDAO == null) {
+            currencyDAO = new CurrencyDAOImpl();
+        }
+        return currencyDAO;
     }
 }
