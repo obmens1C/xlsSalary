@@ -42,7 +42,7 @@ public class App {
             currencies.add(currency);
         }
 
-        addChangeCurrences(currencies);
+        addChangeCurrencies(currencies);
 
         List<Manager> managers = new ArrayList<>();
 
@@ -151,7 +151,7 @@ public class App {
         return currency;
     }
 
-    public void addChangeCurrences(List<Currency> currencies) {
+    public void addChangeCurrencies(List<Currency> currencies) {
         Session session = null;
 
         for (Currency currency : currencies) {
