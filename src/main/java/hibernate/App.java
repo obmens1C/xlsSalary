@@ -29,7 +29,7 @@ public class App {
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         Document document = documentBuilder.parse(new File("src\\main\\resources\\test.xml"));
 
-       /* List<Currency> currencies = new ArrayList<>();
+        List<Currency> currencies = new ArrayList<>();
 
         NodeList currencyNodeList = document.getDocumentElement().getElementsByTagName("currency");
         for (int i = 0; i < currencyNodeList.getLength(); i++) {
@@ -44,7 +44,7 @@ public class App {
 
         addChangeCurrencies(currencies);
 
-        */List<Manager> managers = new ArrayList<>();
+        List<Manager> managers = new ArrayList<>();
 
         NodeList managerNodeList = document.getDocumentElement().getElementsByTagName("manager");
         for (int i = 0; i < managerNodeList.getLength(); i++) {
@@ -60,7 +60,7 @@ public class App {
 
         addChangeManagers(managers);
 
-       /* List<Customer> customers = new ArrayList<>();
+        List<Customer> customers = new ArrayList<>();
 
         NodeList customerNodeList = document.getDocumentElement().getElementsByTagName("customer");
         for (int i = 0; i < customerNodeList.getLength(); i++) {
@@ -184,7 +184,7 @@ public class App {
                     session.close();
                 }
             }
-        }*/
+        }
     }
 
     public void addChangeManagers(List<Manager> managers) {
@@ -204,7 +204,7 @@ public class App {
             }
         }
     }
-/*
+
     public void addChangeCustomers(List<Customer> customers) {
         Session session = null;
 
@@ -242,7 +242,7 @@ public class App {
                 session.close();
             }
         }
-    }*/
+    }
 
     public void printAllManagers() {
         Session session = null;
@@ -264,7 +264,7 @@ public class App {
             }
         }
     }
-/*
+
     public void printAllCustomers() {
         Session session = null;
         try {
@@ -305,5 +305,5 @@ public class App {
                 session.close();
             }
         }
-    }*/
+    }
 }
