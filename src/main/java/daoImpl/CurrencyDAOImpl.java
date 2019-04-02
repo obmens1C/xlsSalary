@@ -22,7 +22,7 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     @Override
     public void addCurrency(Currency currency) throws SQLException, Exception {
         session.beginTransaction();
-        session.save(currency);
+        session.saveOrUpdate(currency);
         session.getTransaction().commit();
     }
 

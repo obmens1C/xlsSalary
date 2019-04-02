@@ -1,10 +1,20 @@
 package entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name = "currencies")
 public class Currency {
+    @Id
+    @Column(name = "id", unique = true)
     private String id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "value")
     private int value;
 
     public Currency(String id, String name) {

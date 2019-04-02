@@ -1,9 +1,6 @@
 package hibernate;
 
-import entity.Currency;
-import entity.Customer;
-import entity.Manager;
-import entity.Order;
+import entity.*;
 import org.hibernate.Session;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -23,12 +20,28 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-public class App {
-    public void parseXML() throws ParserConfigurationException, IOException, SAXException {
+public class ParserFrom1C {
+    Document document = null;
+
+    public ParserFrom1C() {
+        try {
+            loadDocumentXML();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void loadDocumentXML() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-        Document document = documentBuilder.parse(new File("src\\main\\resources\\test.xml"));
+        document = documentBuilder.parse(new File("src\\main\\resources\\test.xml"));
+    }
 
+    public List<Currency> parseCurrencies() {
         List<Currency> currencies = new ArrayList<>();
 
         NodeList currencyNodeList = document.getDocumentElement().getElementsByTagName("currency");
@@ -41,9 +54,10 @@ public class App {
             Currency currency = new Currency(currencyUID, currencyName, currencyValue);
             currencies.add(currency);
         }
+        return currencies;
+    }
 
-        addChangeCurrencies(currencies);
-
+    public List<Manager> parseManagers() {
         List<Manager> managers = new ArrayList<>();
 
         NodeList managerNodeList = document.getDocumentElement().getElementsByTagName("manager");
@@ -57,9 +71,10 @@ public class App {
             Manager manager = new Manager(managerUID, managerName, managerSalary, managerPercent);
             managers.add(manager);
         }
+        return managers;
+    }
 
-        addChangeManagers(managers);
-
+    public List<Customer> parseCustomers() {
         List<Customer> customers = new ArrayList<>();
 
         NodeList customerNodeList = document.getDocumentElement().getElementsByTagName("customer");
@@ -72,9 +87,10 @@ public class App {
             Customer customer = new Customer(customerUID, customerName, customerPercent);
             customers.add(customer);
         }
+        return customers;
+    }
 
-        addChangeCustomers(customers);
-
+    public List<Order> parseOrders() {
         List<Order> orders = new ArrayList<>();
         NodeList orderNodeList = document.getDocumentElement().getElementsByTagName("order");
         for (int i = 0; i < orderNodeList.getLength(); i++) {
@@ -93,65 +109,13 @@ public class App {
             Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency);
             orders.add(order);
         }
-
-        addChangeOrders(orders);
+        return orders;
     }
 
-    Customer getCustomerById(String customreId) {
-        Session session = null;
+    /*List<Payment> parsePayments() {
+    }*/
 
-        Customer customer = null;
-        try {
-            customer = Factory.getInstance().getCustomerDAO().getCustomerById(customreId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return customer;
-    }
-
-    Manager getManagerById(String managerId) {
-        Session session = null;
-
-        Manager manager = null;
-        try {
-            manager = Factory.getInstance().getManagerDAO().getManagerById(managerId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return manager;
-    }
-
-    Currency getCurrencyById(String currencyId) {
-        Session session = null;
-
-        Currency currency = null;
-        try {
-            currency = Factory.getInstance().getCurrencyDAO().getCurrencyById(currencyId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return currency;
-    }
-
-    public void addChangeCurrencies(List<Currency> currencies) {
+    public void addCurrenciesToDatabase(List<Currency> currencies) {
         Session session = null;
 
         for (Currency currency : currencies) {
@@ -169,25 +133,7 @@ public class App {
         }
     }
 
-    public void addChangeOrders(List<Order> orders) {
-        Session session = null;
-
-        for (Order order : orders) {
-            try {
-                Factory.getInstance().getOrderDAO().addOrder(order);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (session != null && session.isOpen()) {
-                    session.close();
-                }
-            }
-        }
-    }
-
-    public void addChangeManagers(List<Manager> managers) {
+    public void addManagersToDatabase(List<Manager> managers) {
         Session session = null;
 
         for (Manager manager : managers) {
@@ -205,7 +151,7 @@ public class App {
         }
     }
 
-    public void addChangeCustomers(List<Customer> customers) {
+    public void addCustomersToDatabase(List<Customer> customers) {
         Session session = null;
 
         for (Customer customer : customers) {
@@ -223,7 +169,133 @@ public class App {
         }
     }
 
-    public void printAllCurrencies() {
+    public void addOrdersToDatabase(List<Order> orders) {
+        Session session = null;
+
+        for (Order order : orders) {
+            try {
+                Factory.getInstance().getOrderDAO().addOrder(order);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+            }
+        }
+    }
+
+    public void addPaymentsToDatabase(List<Payment> payments) {
+        Session session = null;
+
+        for (Payment payment : payments) {
+            try {
+                Factory.getInstance().getPaymentDAO().addPayment(payment);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+            }
+        }
+    }
+
+    public Currency getCurrencyById(String currencyId) {
+        Session session = null;
+
+        Currency currency = null;
+        try {
+            currency = Factory.getInstance().getCurrencyDAO().getCurrencyById(currencyId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return currency;
+    }
+
+    public Manager getManagerById(String managerId) {
+        Session session = null;
+
+        Manager manager = null;
+        try {
+            manager = Factory.getInstance().getManagerDAO().getManagerById(managerId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return manager;
+    }
+
+    public Customer getCustomerById(String customreId) {
+        Session session = null;
+
+        Customer customer = null;
+        try {
+            customer = Factory.getInstance().getCustomerDAO().getCustomerById(customreId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return customer;
+    }
+
+    public Order getOrderById(String orderId) {
+        Session session = null;
+
+        Order order = null;
+        try {
+            order = Factory.getInstance().getOrderDAO().getOrderById(orderId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return order;
+    }
+
+    public Payment getPaymentById(String paymentId) {
+        Session session = null;
+
+        Payment payment = null;
+        try {
+            payment = Factory.getInstance().getPaymentDAO().getPaymentById(paymentId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return payment;
+    }
+
+    public void printCurrenciesDatabase() {
         Session session = null;
         try {
             Collection<Currency> currencies = Factory.getInstance().getCurrencyDAO().getAllCurrences();
@@ -244,7 +316,7 @@ public class App {
         }
     }
 
-    public void printAllManagers() {
+    public void printManagersDatabase() {
         Session session = null;
         try {
             Collection<Manager> managers = Factory.getInstance().getManagerDAO().getAllManagers();
@@ -265,7 +337,7 @@ public class App {
         }
     }
 
-    public void printAllCustomers() {
+    public void printCustomersDatabase() {
         Session session = null;
         try {
             Collection<Customer> customers = Factory.getInstance().getCustomerDAO().getAllCustomers();
@@ -286,7 +358,7 @@ public class App {
         }
     }
 
-    public void printAllOrders() {
+    public void printOrdersDatabase() {
         Session session = null;
         try {
             Collection<Order> orders = Factory.getInstance().getOrderDAO().getAllOrders();
@@ -295,6 +367,27 @@ public class App {
             while (orderIterator.hasNext()) {
                 Order order = (Order) orderIterator.next();
                 System.out.println(order);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
+    public void printPaymentsDatabase() {
+        Session session = null;
+        try {
+            Collection<Payment> payments = Factory.getInstance().getPaymentDAO().getAllPayments();
+            Iterator<Payment> paymentIterator = payments.iterator();
+            System.out.println("list of payments:");
+            while (paymentIterator.hasNext()) {
+                Payment payment = (Payment) paymentIterator.next();
+                System.out.println(payment);
             }
         } catch (SQLException e) {
             e.printStackTrace();

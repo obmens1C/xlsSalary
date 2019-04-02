@@ -19,7 +19,7 @@ public class PaymentDAOImpl implements PaymentDAO {
     @Override
     public void addPayment(Payment payment) throws SQLException, Exception {
         session.beginTransaction();
-        session.save(payment);
+        session.saveOrUpdate(payment);
         session.getTransaction().commit();
     }
 
@@ -31,7 +31,7 @@ public class PaymentDAOImpl implements PaymentDAO {
     }
 
     @Override
-    public Payment getPaymentById(Long id) throws SQLException, Exception {
+    public Payment getPaymentById(String id) throws SQLException, Exception {
         Payment payment = null;
         payment = (Payment) session.load(Payment.class, id);
         return payment;

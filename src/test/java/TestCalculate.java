@@ -1,17 +1,16 @@
-import hibernate.App;
+import entity.Customer;
+import hibernate.ParserFrom1C;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.List;
 
 public class TestCalculate {
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
-        App application = new App();
-        application.parseXML();
-        application.printAllCurrencies();
-        application.printAllManagers();
-        application.printAllCustomers();
-        application.printAllOrders();
+        ParserFrom1C parser = new ParserFrom1C();
+        parser.addCurrenciesToDatabase(parser.parseCurrencies());
+       // parser.printCustomersDatabase();
         System.exit(0);
     }
 }

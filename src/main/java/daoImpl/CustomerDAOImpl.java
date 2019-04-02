@@ -19,7 +19,7 @@ public class CustomerDAOImpl implements CustomerDAO{
     @Override
     public void addCustomer(Customer customer) throws SQLException, Exception {
         session.beginTransaction();
-        session.save(customer);
+        session.saveOrUpdate(customer);
         session.getTransaction().commit();
     }
 

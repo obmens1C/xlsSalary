@@ -20,7 +20,7 @@ public class OrderDAOImpl implements OrderDAO {
     @Override
     public void addOrder(Order order) throws SQLException, Exception {
         session.beginTransaction();
-        session.save(order);
+        session.saveOrUpdate(order);
         session.getTransaction().commit();
     }
 
@@ -32,7 +32,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public Order getOrderById(Long id) throws SQLException, Exception {
+    public Order getOrderById(String id) throws SQLException, Exception {
         Order order = null;
         order = (Order) session.load(Order.class, id);
         return order;

@@ -3,6 +3,7 @@ package entity;
 import javax.persistence.*;
 import java.rmi.server.UID;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,18 +16,23 @@ public class Customer {
     private String name;
     @Column(name = "percent")
     private int percent;
-    /*@OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
-    private Collection<Order> orders;*/
+    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
+    private List<Order> orders;
 
-    public Customer(String customerUID, String name, int customerPercent) {
-        this.id = customerUID;
-        this.name = name;
-        this.percent = 0;
-    }
-
-    Customer(String name, int percent) {
+    public Customer(String id, String name, int percent) {
+        this.id = id;
         this.name = name;
         this.percent = percent;
+    }
+
+    public Customer(String id, String name, int percent, List<Order> orders) {
+        this.id = id;
+        this.name = name;
+        this.percent = percent;
+        this.orders = orders;
+    }
+
+    public Customer() {
     }
 
     @Override
@@ -72,11 +78,11 @@ public class Customer {
         this.percent = percent;
     }
 
-    /*public Collection<Order> getOrders() {
+    public List<Order> getOrders() {
         return orders;
     }
 
-    public void setOrders(Collection<Order> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders = orders;
-    }*/
+    }
 }
