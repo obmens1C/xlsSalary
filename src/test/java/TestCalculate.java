@@ -12,14 +12,14 @@ public class TestCalculate {
         /*parser.addCurrenciesToDatabase(parser.parseCurrencies());
         parser.printCurrenciesDatabase();*/
 
-        /*parser.addManagersToDatabase(parser.parseManagers());
-        parser.printManagersDatabase();*/
+        parser.addManagersToDatabase(parser.parseManagers());
+        //parser.printManagersDatabase();
 
-        /*parser.addCustomersToDatabase(parser.parseCustomers());
-        parser.printCustomersDatabase();*/
+        parser.addCustomersToDatabase(parser.parseCustomers());
+        //parser.printCustomersDatabase();
 
         parser.addOrdersToDatabase(parser.parseOrders());
-       // parser.printOrdersDatabase();
+        parser.printOrdersDatabase();
 
         System.exit(0);
     }

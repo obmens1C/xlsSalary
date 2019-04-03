@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +16,8 @@ public class Manager {
     private int salary;
     @Column(name = "percent")
     private int percent;
+    /*@OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
+    private List<Order> orders;*/
 
     Manager(String id, String name) {
         this.id = id;

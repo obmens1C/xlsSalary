@@ -22,11 +22,12 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private int sum;
-    @ManyToMany
+   /* @ManyToMany
     @JoinColumn(name = "payments")
-    private Payment payment;
-    @Column(name = "currency")
-    private Currency currency;
+    private Payment payment;*/
+   /*@ManyToOne
+   @JoinColumn(name = "currency")
+    private Currency currency;*/
 
     public Order(String id, String number, LocalDate date, Customer customer, Manager manager, int sum, Currency currency) {
         this.id = id;
@@ -35,7 +36,7 @@ public class Order {
         this.customer = customer;
         this.manager = manager;
         this.sum = sum;
-        this.currency = currency;
+     //   this.currency = currency;
     }
 
     Order(LocalDate date, Customer customer, Manager manager) {
@@ -43,7 +44,7 @@ public class Order {
         this.customer = customer;
         this.manager = manager;
         this.sum = 0;
-        this.payment = null;
+     //   this.payment = null;
     }
 
     Order(LocalDate date, Customer customer, Manager manager, int sum) {
@@ -51,7 +52,7 @@ public class Order {
         this.customer = customer;
         this.manager = manager;
         this.sum = sum;
-        this.payment = null;
+     //   this.payment = null;
     }
 
     Order(LocalDate date, Customer customer, Manager manager, int sum, Payment payment) {
@@ -59,7 +60,7 @@ public class Order {
         this.customer = customer;
         this.manager = manager;
         this.sum = sum;
-        this.payment = payment;
+     //   this.payment = payment;
     }
 
     @Override
@@ -71,8 +72,8 @@ public class Order {
                 ", customer=" + customer +
                 ", manager=" + manager +
                 ", sum=" + sum +
-                ", payment=" + payment +
-                ", currency=" + currency +
+        //        ", payment=" + payment +
+        //        ", currency=" + currency +
                 '}';
     }
 
@@ -131,11 +132,11 @@ public class Order {
         this.sum = sum;
     }
 
-    public Payment getPayment() {
+  /*  public Payment getPayment() {
         return payment;
     }
 
     public void setPayment(Payment payment) {
         this.payment = payment;
-    }
+    }*/
 }

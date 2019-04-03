@@ -16,8 +16,8 @@ public class Customer {
     private String name;
     @Column(name = "percent")
     private int percent;
-    /*@OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
-    private List<Order> orders;*/
+    //@OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
+    //private List<Order> orders;
 
     public Customer(String id, String name, int percent) {
         this.id = id;

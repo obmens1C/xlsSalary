@@ -1,6 +1,7 @@
 package hibernate;
 
 import entity.*;
+import entity.Currency;
 import org.hibernate.Session;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -14,11 +15,12 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class ParserFrom1C {
     Document document = null;
@@ -98,7 +100,10 @@ public class ParserFrom1C {
             NamedNodeMap orderNodeMap = orderNode.getAttributes();
             String orderUID = orderNodeMap.getNamedItem("id").getNodeValue();
             String orderNumber = orderNodeMap.getNamedItem("number").getNodeValue();
-            LocalDate orderDate = LocalDate.parse(orderNodeMap.getNamedItem("date").getNodeValue());
+
+            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm:ss");
+            LocalDate orderDate = LocalDate.parse(orderNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
+
             String orderCustomerId = orderNodeMap.getNamedItem("customerid").getNodeValue();
             Customer orderCustomer = getCustomerById(orderCustomerId);
             String orderManagerId = orderNodeMap.getNamedItem("managerid").getNodeValue();
