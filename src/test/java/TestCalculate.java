@@ -9,8 +9,18 @@ import java.util.List;
 public class TestCalculate {
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
         ParserFrom1C parser = new ParserFrom1C();
-        parser.addCurrenciesToDatabase(parser.parseCurrencies());
-       // parser.printCustomersDatabase();
+        /*parser.addCurrenciesToDatabase(parser.parseCurrencies());
+        parser.printCurrenciesDatabase();*/
+
+        /*parser.addManagersToDatabase(parser.parseManagers());
+        parser.printManagersDatabase();*/
+
+        /*parser.addCustomersToDatabase(parser.parseCustomers());
+        parser.printCustomersDatabase();*/
+
+        parser.addOrdersToDatabase(parser.parseOrders());
+       // parser.printOrdersDatabase();
+
         System.exit(0);
     }
 }

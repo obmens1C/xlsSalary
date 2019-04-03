@@ -324,7 +324,7 @@ public class ParserFrom1C {
             System.out.println("list of managers:");
             while (managerIterator.hasNext()) {
                 Manager manager = (Manager) managerIterator.next();
-                System.out.println("manager #" + manager.getId() + ", name is " + manager.getName() + ", salary:" + manager.getSalary() + ", percent:" + manager.getPercent());
+                System.out.println(manager);
             }
         } catch (SQLException e) {
             e.printStackTrace();
