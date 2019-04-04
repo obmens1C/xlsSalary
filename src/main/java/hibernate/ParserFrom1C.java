@@ -101,7 +101,7 @@ public class ParserFrom1C {
             String orderUID = orderNodeMap.getNamedItem("id").getNodeValue();
             String orderNumber = orderNodeMap.getNamedItem("number").getNodeValue();
 
-            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm:ss");
+            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
             LocalDate orderDate = LocalDate.parse(orderNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
 
             String orderCustomerId = orderNodeMap.getNamedItem("customerid").getNodeValue();
