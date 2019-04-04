@@ -21,7 +21,7 @@ public class Order {
     @JoinColumn(name = "manager")
     private Manager manager;
     @Column(name = "sum")
-    private int sum;
+    private double sum;
    /* @ManyToMany
     @JoinColumn(name = "payments")
     private Payment payment;*/
@@ -29,7 +29,7 @@ public class Order {
    @JoinColumn(name = "currency")
     private Currency currency;*/
 
-    public Order(String id, String number, LocalDate date, Customer customer, Manager manager, int sum, Currency currency) {
+    public Order(String id, String number, LocalDate date, Customer customer, Manager manager, double sum, Currency currency) {
         this.id = id;
         this.number = number;
         this.date = date;
@@ -47,7 +47,7 @@ public class Order {
      //   this.payment = null;
     }
 
-    Order(LocalDate date, Customer customer, Manager manager, int sum) {
+    Order(LocalDate date, Customer customer, Manager manager, double sum) {
         this.date = date;
         this.customer = customer;
         this.manager = manager;
@@ -55,7 +55,7 @@ public class Order {
      //   this.payment = null;
     }
 
-    Order(LocalDate date, Customer customer, Manager manager, int sum, Payment payment) {
+    Order(LocalDate date, Customer customer, Manager manager, double sum, Payment payment) {
         this.date = date;
         this.customer = customer;
         this.manager = manager;
@@ -124,11 +124,11 @@ public class Order {
         this.manager = manager;
     }
 
-    public int getSum() {
+    public double getSum() {
         return sum;
     }
 
-    public void setSum(int sum) {
+    public void setSum(double sum) {
         this.sum = sum;
     }
 

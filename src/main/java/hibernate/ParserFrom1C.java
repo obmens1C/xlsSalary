@@ -101,14 +101,15 @@ public class ParserFrom1C {
             String orderUID = orderNodeMap.getNamedItem("id").getNodeValue();
             String orderNumber = orderNodeMap.getNamedItem("number").getNodeValue();
 
-            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm:ss");
             LocalDate orderDate = LocalDate.parse(orderNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
 
             String orderCustomerId = orderNodeMap.getNamedItem("customerid").getNodeValue();
             Customer orderCustomer = getCustomerById(orderCustomerId);
             String orderManagerId = orderNodeMap.getNamedItem("managerid").getNodeValue();
             Manager orderManager = getManagerById(orderManagerId);
-            int orderSum = Integer.parseInt(orderNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", ""));
+            String textOrderSum = orderNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
+            double orderSum = Double.parseDouble(textOrderSum.replace("," , "."));
             String orderCurrencyId = orderNodeMap.getNamedItem("curencyid").getNodeValue();
             Currency orderCurrency = getCurrencyById(orderCurrencyId);
             Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency);

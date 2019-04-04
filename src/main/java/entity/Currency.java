@@ -29,6 +29,10 @@ public class Currency {
         this.value = value;
     }
 
+    public Currency() {
+
+    }
+
     public int getValue() {
         return value;
     }
