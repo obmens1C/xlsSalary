@@ -14,7 +14,7 @@ public class HibernateUtil {
             cfgHibernate.addAnnotatedClass(Manager.class);
             cfgHibernate.addAnnotatedClass(Customer.class);
             cfgHibernate.addAnnotatedClass(Order.class);
-            // cfgHibernate.addAnnotatedClass(Payment.class);
+            cfgHibernate.addAnnotatedClass(Payment.class);
             cfgHibernate.addAnnotatedClass(Currency.class);
 
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfgHibernate.getProperties());

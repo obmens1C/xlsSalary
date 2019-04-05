@@ -1,7 +1,6 @@
 package hibernate;
 
 import entity.*;
-import entity.Currency;
 import org.hibernate.Session;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -15,12 +14,12 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 public class ParserFrom1C {
     Document document = null;
@@ -108,8 +107,16 @@ public class ParserFrom1C {
             Customer orderCustomer = getCustomerById(orderCustomerId);
             String orderManagerId = orderNodeMap.getNamedItem("managerid").getNodeValue();
             Manager orderManager = getManagerById(orderManagerId);
+            if (orderManager == null) {
+                String orderManagerName = orderNodeMap.getNamedItem("managername").getNodeValue();
+                orderManager = new Manager(orderManagerId, orderManagerName);
+                List<Manager> newManagers = new ArrayList<>();
+                newManagers.add(orderManager);
+                addManagersToDatabase(newManagers);
+            }
+
             String textOrderSum = orderNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
-            double orderSum = Double.parseDouble(textOrderSum.replace("," , "."));
+            double orderSum = Double.parseDouble(textOrderSum.replace(",", "."));
             String orderCurrencyId = orderNodeMap.getNamedItem("curencyid").getNodeValue();
             Currency orderCurrency = getCurrencyById(orderCurrencyId);
             Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency);
@@ -118,8 +125,36 @@ public class ParserFrom1C {
         return orders;
     }
 
-    /*List<Payment> parsePayments() {
-    }*/
+    public List<Payment> parsePayments() {
+        List<Payment> payments = new ArrayList<>();
+        NodeList paymentNodeList = document.getDocumentElement().getElementsByTagName("payment");
+        for (int i = 0; i < paymentNodeList.getLength(); i++) {
+            Node orderNode = paymentNodeList.item(i);
+            NamedNodeMap paymentNodeMap = orderNode.getAttributes();
+            String paymentUID = paymentNodeMap.getNamedItem("id").getNodeValue();
+            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm:ss");
+            LocalDate paymentDate = LocalDate.parse(paymentNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
+            String paymentNumber = paymentNodeMap.getNamedItem("number").getNodeValue();
+
+            String paymentManagerId = paymentNodeMap.getNamedItem("managerid").getNodeValue();
+            Manager paymentManager = getManagerById(paymentManagerId);
+
+            String paymentOrderId = paymentNodeMap.getNamedItem("orderid").getNodeValue();
+            Order paymentOrder = getOrderById(paymentOrderId);
+
+            String paymentCurrencyId = paymentNodeMap.getNamedItem("curencyid").getNodeValue();
+            Currency paymentCurrency = getCurrencyById(paymentCurrencyId);
+
+            String textPaymentSum = paymentNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
+            double paymentSum = Double.parseDouble(textPaymentSum.replace(",", "."));
+
+          /*  if(paymentOrder == null) {
+                paymentOrder = new Order(paymentOrderId, paymentNumber, paymentDate, paymentManager, paymentSum, paymentCurrency);
+            }*/
+          payments.add(new Payment(paymentUID, paymentDate, paymentNumber, paymentOrder, paymentManager, paymentCurrency, paymentSum));
+        }
+        return payments;
+    }
 
     public void addCurrenciesToDatabase(List<Currency> currencies) {
         Session session = null;

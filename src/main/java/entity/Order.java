@@ -22,12 +22,16 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private double sum;
-   /* @ManyToMany
-    @JoinColumn(name = "payments")
+  /*  @OneToOne
+    @JoinColumn(name = "payment")
     private Payment payment;*/
-   /*@ManyToOne
-   @JoinColumn(name = "currency")
-    private Currency currency;*/
+    @ManyToOne
+    @JoinColumn(name = "currency")
+    private Currency currency;
+
+    Order() {
+
+    }
 
     public Order(String id, String number, LocalDate date, Customer customer, Manager manager, double sum, Currency currency) {
         this.id = id;
@@ -36,7 +40,7 @@ public class Order {
         this.customer = customer;
         this.manager = manager;
         this.sum = sum;
-     //   this.currency = currency;
+        this.currency = currency;
     }
 
     Order(LocalDate date, Customer customer, Manager manager) {
@@ -44,7 +48,7 @@ public class Order {
         this.customer = customer;
         this.manager = manager;
         this.sum = 0;
-     //   this.payment = null;
+        //   this.payment = null;
     }
 
     Order(LocalDate date, Customer customer, Manager manager, double sum) {
@@ -52,7 +56,7 @@ public class Order {
         this.customer = customer;
         this.manager = manager;
         this.sum = sum;
-     //   this.payment = null;
+        //   this.payment = null;
     }
 
     Order(LocalDate date, Customer customer, Manager manager, double sum, Payment payment) {
@@ -60,7 +64,7 @@ public class Order {
         this.customer = customer;
         this.manager = manager;
         this.sum = sum;
-     //   this.payment = payment;
+        //   this.payment = payment;
     }
 
     @Override
@@ -72,8 +76,8 @@ public class Order {
                 ", customer=" + customer +
                 ", manager=" + manager +
                 ", sum=" + sum +
-        //        ", payment=" + payment +
-        //        ", currency=" + currency +
+                //        ", payment=" + payment +
+                //        ", currency=" + currency +
                 '}';
     }
 
@@ -131,8 +135,8 @@ public class Order {
     public void setSum(double sum) {
         this.sum = sum;
     }
-
-  /*  public Payment getPayment() {
+/*
+    public Payment getPayment() {
         return payment;
     }
 

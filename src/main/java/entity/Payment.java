@@ -8,51 +8,68 @@ import java.util.Objects;
 @Table(name = "payments")
 public class Payment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "id", unique = true)
+    private String id;
     @Column(name = "date")
     private LocalDate date;
-    @ManyToMany
+    @Column(name = "number")
+    private String number;
+   /* @OneToOne
     @JoinColumn(name = "order")
-    private Order order;
+    private Order order;*/
     @Column(name = "sum")
-    private int sum;
+    private double sum;
     @ManyToOne
     @JoinColumn(name = "customer")
     private Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "manager")
+    private Manager manager;
+    @ManyToOne
+    @JoinColumn(name = "currency")
+    private Currency currency;
 
     Payment(LocalDate date, int sum, Customer customer) {
         this.date = date;
         this.sum = sum;
         this.customer = customer;
-        this.order = null;
+     //   this.order = null;
     }
 
     Payment(LocalDate date, Order order, int sum, Customer customer) {
         this.date = date;
-        this.order = order;
+     //   this.order = order;
         this.sum = sum;
         this.customer = customer;
     }
 
     Payment(LocalDate date, Order order, int sum) {
         this.date = date;
-        this.order = order;
+     //   this.order = order;
         this.sum = sum;
         this.customer = order.getCustomer();
     }
 
-    @Override
+    public Payment(String id, LocalDate date, String number, Order order, Manager manager, Currency currency, double sum) {
+        this.id = id;
+        this.date = date;
+        this.number = number;
+     //   this.order = order;
+        this.currency = currency;
+        this.sum = sum;
+        this.manager = manager;
+    }
+
+   /* @Override
     public int hashCode() {
         return Objects.hash(date, order, customer, sum);
-    }
+    }*/
 
     @Override
     public String toString() {
         return "Payment{" +
                 "date=" + date +
-                ", order=" + order +
+           //    ", order=" + order +
                 ", sum=" + sum +
                 ", customer=" + customer +
                 '}';
@@ -68,11 +85,11 @@ public class Payment {
         return Objects.equals(date, payment.date) && sum == payment.sum && payment.equals(obj) && payment.equals(obj);
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    private void setId(Long id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -83,7 +100,7 @@ public class Payment {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-
+/*
     public Order getOrder() {
         return order;
     }
@@ -91,8 +108,8 @@ public class Payment {
     public void setOrder(Order order) {
         this.order = order;
     }
-
-    public int getSum() {
+*/
+    public double getSum() {
         return sum;
     }
 

@@ -42,7 +42,7 @@ public class ManagerDAOImpl implements ManagerDAO{
     @Override
     public Manager getManagerById(String id) throws SQLException, Exception {
         Manager manager = null;
-        manager = (Manager) session.load(Manager.class, id);
+        manager = (Manager) session.get(Manager.class, id);
         return manager;
     }
 

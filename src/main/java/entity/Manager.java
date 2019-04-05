@@ -19,7 +19,7 @@ public class Manager {
     /*@OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
     private List<Order> orders;*/
 
-    Manager(String id, String name) {
+    public Manager(String id, String name) {
         this.id = id;
         this.name = name;
         this.percent = 0;

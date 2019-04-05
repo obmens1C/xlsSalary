@@ -34,7 +34,7 @@ public class OrderDAOImpl implements OrderDAO {
     @Override
     public Order getOrderById(String id) throws SQLException, Exception {
         Order order = null;
-        order = (Order) session.load(Order.class, id);
+        order = (Order) session.get(Order.class, id);
         return order;
     }
 
