@@ -22,9 +22,9 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private double sum;
-  /*  @OneToOne
+    @OneToMany
     @JoinColumn(name = "payment")
-    private Payment payment;*/
+    private Payment payment;
     @ManyToOne
     @JoinColumn(name = "currency")
     private Currency currency;

@@ -14,9 +14,9 @@ public class Payment {
     private LocalDate date;
     @Column(name = "number")
     private String number;
-   /* @OneToOne
+    @OneToMany
     @JoinColumn(name = "order")
-    private Order order;*/
+    private Order order;
     @Column(name = "sum")
     private double sum;
     @ManyToOne
