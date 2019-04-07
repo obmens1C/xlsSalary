@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -22,9 +23,11 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private double sum;
-    @OneToMany
-    @JoinColumn(name = "payment")
-    private Payment payment;
+    @ManyToMany
+    @JoinTable(name = "payments",
+            joinColumns = @JoinColumn(name = "payment"),
+            inverseJoinColumns = @JoinColumn(name = "order"))
+    private List<Payment> payments;
     @ManyToOne
     @JoinColumn(name = "currency")
     private Currency currency;

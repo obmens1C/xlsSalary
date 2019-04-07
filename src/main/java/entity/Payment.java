@@ -2,7 +2,9 @@ package entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "payments")
@@ -14,9 +16,11 @@ public class Payment {
     private LocalDate date;
     @Column(name = "number")
     private String number;
-    @OneToMany
-    @JoinColumn(name = "order")
-    private Order order;
+    @ManyToMany
+    @JoinTable(name = "orders",
+        joinColumns = @JoinColumn(name = "order"),
+        inverseJoinColumns = @JoinColumn(name = "payment"))
+    private List<Order> orders;
     @Column(name = "sum")
     private double sum;
     @ManyToOne
