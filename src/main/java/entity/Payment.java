@@ -2,9 +2,9 @@ package entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "payments")
@@ -16,10 +16,10 @@ public class Payment {
     private LocalDate date;
     @Column(name = "number")
     private String number;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "orders",
-        joinColumns = @JoinColumn(name = "order"),
-        inverseJoinColumns = @JoinColumn(name = "payment"))
+            joinColumns = @JoinColumn(name = "orderid"),
+            inverseJoinColumns = @JoinColumn(name = "paymentid"))
     private List<Order> orders;
     @Column(name = "sum")
     private double sum;
@@ -33,32 +33,36 @@ public class Payment {
     @JoinColumn(name = "currency")
     private Currency currency;
 
+    public Payment() {
+
+    }
+
     Payment(LocalDate date, int sum, Customer customer) {
         this.date = date;
         this.sum = sum;
         this.customer = customer;
-     //   this.order = null;
+        //   this.order = null;
     }
 
     Payment(LocalDate date, Order order, int sum, Customer customer) {
         this.date = date;
-     //   this.order = order;
+        //   this.order = order;
         this.sum = sum;
         this.customer = customer;
     }
 
     Payment(LocalDate date, Order order, int sum) {
         this.date = date;
-     //   this.order = order;
+        //   this.order = order;
         this.sum = sum;
         this.customer = order.getCustomer();
     }
 
-    public Payment(String id, LocalDate date, String number, Order order, Manager manager, Currency currency, double sum) {
+    public Payment(String id, LocalDate date, String number, List<Order> orders, Manager manager, Currency currency, double sum) {
         this.id = id;
         this.date = date;
         this.number = number;
-     //   this.order = order;
+        this.orders = orders;
         this.currency = currency;
         this.sum = sum;
         this.manager = manager;
@@ -73,7 +77,7 @@ public class Payment {
     public String toString() {
         return "Payment{" +
                 "date=" + date +
-           //    ", order=" + order +
+                //    ", order=" + order +
                 ", sum=" + sum +
                 ", customer=" + customer +
                 '}';
@@ -104,15 +108,16 @@ public class Payment {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-/*
-    public Order getOrder() {
-        return order;
-    }
 
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-*/
+    /*
+        public Order getOrder() {
+            return order;
+        }
+
+        public void setOrder(Order order) {
+            this.order = order;
+        }
+    */
     public double getSum() {
         return sum;
     }

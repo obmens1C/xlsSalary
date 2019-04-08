@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,10 +24,10 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private double sum;
-    @ManyToMany
-    @JoinTable(name = "payments",
-            joinColumns = @JoinColumn(name = "payment"),
-            inverseJoinColumns = @JoinColumn(name = "order"))
+    @ManyToMany(mappedBy = "payments")
+    /*@JoinTable(name = "payments",
+            joinColumns = @JoinColumn(name = "paymentid"),
+            inverseJoinColumns = @JoinColumn(name = "orderid"))*/
     private List<Payment> payments;
     @ManyToOne
     @JoinColumn(name = "currency")
@@ -34,6 +35,17 @@ public class Order {
 
     Order() {
 
+    }
+
+    public Order(String id, String number, LocalDate date, Customer customer, Manager manager, double sum, Currency currency, List<Payment> payments) {
+        this.id = id;
+        this.number = number;
+        this.date = date;
+        this.customer = customer;
+        this.manager = manager;
+        this.sum = sum;
+        this.currency = currency;
+        this.payments = payments;
     }
 
     public Order(String id, String number, LocalDate date, Customer customer, Manager manager, double sum, Currency currency) {
@@ -138,12 +150,12 @@ public class Order {
     public void setSum(double sum) {
         this.sum = sum;
     }
-/*
-    public Payment getPayment() {
-        return payment;
+
+    public List<Payment> getPayment() {
+        return payments;
     }
 
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }*/
+    public void setPayment(List<Payment> payments) {
+        this.payments = payments;
+    }
 }

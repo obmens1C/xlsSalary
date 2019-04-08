@@ -119,7 +119,11 @@ public class ParserFrom1C {
             double orderSum = Double.parseDouble(textOrderSum.replace(",", "."));
             String orderCurrencyId = orderNodeMap.getNamedItem("curencyid").getNodeValue();
             Currency orderCurrency = getCurrencyById(orderCurrencyId);
-            Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency);
+
+            List<Payment> orderPayments = new ArrayList<>();
+            orderPayments.add(new Payment());
+            //  Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency);
+            Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency, orderPayments);
             orders.add(order);
         }
         return orders;
@@ -139,19 +143,23 @@ public class ParserFrom1C {
             String paymentManagerId = paymentNodeMap.getNamedItem("managerid").getNodeValue();
             Manager paymentManager = getManagerById(paymentManagerId);
 
-            String paymentOrderId = paymentNodeMap.getNamedItem("orderid").getNodeValue();
-            Order paymentOrder = getOrderById(paymentOrderId);
 
+
+           /* String paymentOrderId = paymentNodeMap.getNamedItem("orderid").getNodeValue();
+            Order paymentOrder = getOrderById(paymentOrderId);
+*/
             String paymentCurrencyId = paymentNodeMap.getNamedItem("curencyid").getNodeValue();
             Currency paymentCurrency = getCurrencyById(paymentCurrencyId);
 
-            String textPaymentSum = paymentNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
-            double paymentSum = Double.parseDouble(textPaymentSum.replace(",", "."));
+/*            String textPaymentSum = paymentNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
+            double paymentSum = Double.parseDouble(textPaymentSum.replace(",", "."));*/
+            double paymentSum = 0;
 
-          /*  if(paymentOrder == null) {
-                paymentOrder = new Order(paymentOrderId, paymentNumber, paymentDate, paymentManager, paymentSum, paymentCurrency);
-            }*/
-          payments.add(new Payment(paymentUID, paymentDate, paymentNumber, paymentOrder, paymentManager, paymentCurrency, paymentSum));
+            List<Order> paymentOrder = null;
+            //  if(paymentOrder == null) {
+            //     paymentOrder = new Order(paymentOrderId, paymentNumber, paymentDate, paymentManager, paymentSum, paymentCurrency);
+            // }
+            payments.add(new Payment(paymentUID, paymentDate, paymentNumber, paymentOrder, paymentManager, paymentCurrency, paymentSum));
         }
         return payments;
     }
