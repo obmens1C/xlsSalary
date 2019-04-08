@@ -24,7 +24,7 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private double sum;
-    @ManyToMany(mappedBy = "payments")
+    @ManyToMany(mappedBy = "orders")
     /*@JoinTable(name = "payments",
             joinColumns = @JoinColumn(name = "paymentid"),
             inverseJoinColumns = @JoinColumn(name = "orderid"))*/
