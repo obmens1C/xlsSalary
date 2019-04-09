@@ -140,11 +140,6 @@ public class ParserFrom1C {
             LocalDate paymentDate = LocalDate.parse(paymentNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
             String paymentNumber = paymentNodeMap.getNamedItem("number").getNodeValue();
 
-            String paymentManagerId = paymentNodeMap.getNamedItem("managerid").getNodeValue();
-            Manager paymentManager = getManagerById(paymentManagerId);
-
-
-
            /* String paymentOrderId = paymentNodeMap.getNamedItem("orderid").getNodeValue();
             Order paymentOrder = getOrderById(paymentOrderId);
 */
@@ -159,7 +154,7 @@ public class ParserFrom1C {
             //  if(paymentOrder == null) {
             //     paymentOrder = new Order(paymentOrderId, paymentNumber, paymentDate, paymentManager, paymentSum, paymentCurrency);
             // }
-            payments.add(new Payment(paymentUID, paymentDate, paymentNumber, paymentOrder, paymentManager, paymentCurrency, paymentSum));
+            payments.add(new Payment(paymentUID, paymentDate, paymentNumber, paymentOrder, paymentCurrency, paymentSum));
         }
         return payments;
     }

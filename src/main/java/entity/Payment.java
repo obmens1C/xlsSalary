@@ -26,9 +26,9 @@ public class Payment {
     @ManyToOne
     @JoinColumn(name = "customer")
     private Customer customer;
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "manager")
-    private Manager manager;
+    private Manager manager;*/
     @ManyToOne
     @JoinColumn(name = "currency")
     private Currency currency;
@@ -58,14 +58,14 @@ public class Payment {
         this.customer = order.getCustomer();
     }
 
-    public Payment(String id, LocalDate date, String number, List<Order> orders, Manager manager, Currency currency, double sum) {
+    public Payment(String id, LocalDate date, String number, List<Order> orders, Currency currency, double sum) {
         this.id = id;
         this.date = date;
         this.number = number;
         this.orders = orders;
         this.currency = currency;
         this.sum = sum;
-        this.manager = manager;
+        //this.manager = manager;
     }
 
    /* @Override

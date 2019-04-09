@@ -74,19 +74,19 @@
 		<order id="02621f8c-578a-11e9-7493-a4bf011ca70c" number="КС00-000627" date="05.04.2019 13:03:06" customerid="80cd101a-4fe3-11e9-1293-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c" managername="Рыбаков Семен Сергеевич" sum="19 605" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
 	</orders>
 	<payments>
-		<payment id="7c005cc4-5126-11e9-d48d-a4bf011ca70c" date="01.04.2019 9:42:49" number="КС00-000028" managerid="4a264d62-e945-11e6-3883-c860000abaae" curencyid="49555e84-7418-11e1-7387-c860000abaae">
+		<payment id="7c005cc4-5126-11e9-d48d-a4bf011ca70c" date="01.04.2019 9:42:49" number="КС00-000028" curencyid="49555e84-7418-11e1-7387-c860000abaae">
 			<paymentOrder id="4f263dac-ef3a-11e8-ab8c-a4bf011ca70c" sum="29 853"/>
 		</payment>
-		<payment id="b348a9d8-550f-11e9-7493-a4bf011ca70c" date="01.04.2019 14:50:57" number="КС00-000458"  managerid="b2bc8897-d8a5-11e2-c886-c860000abaae" curencyid="49555e84-7418-11e1-7387-c860000abaae">
+		<payment id="b348a9d8-550f-11e9-7493-a4bf011ca70c" date="01.04.2019 14:50:57" number="КС00-000458" curencyid="49555e84-7418-11e1-7387-c860000abaae">
 			<paymentOrder id="1f891ac0-2891-11e9-1d85-a4bf011ca70c" sum="1 675"/>
 			<paymentOrder id="8607fe4a-28a7-11e9-1d85-a4bf011ca70c" sum="11 120"/>
 		</payment>
-		<payment id="163d4412-5511-11e9-7493-a4bf011ca70c" date="01.04.2019 14:51:01" number="КС00-000462"  managerid="d89d3d78-6269-11e8-0686-a4bf011ca70c" curencyid="49555e84-7418-11e1-7387-c860000abaae">
+		<payment id="163d4412-5511-11e9-7493-a4bf011ca70c" date="01.04.2019 14:51:01" number="КС00-000462"  curencyid="49555e84-7418-11e1-7387-c860000abaae">
 			<paymentOrder id="8d8c981e-3fcd-11e9-7692-a4bf011ca70c" sum="1 400"/>
 			<paymentOrder id="f35c71a0-3fcd-11e9-7692-a4bf011ca70c" sum="4 150"/>
 			<paymentOrder id="48e133c2-3fce-11e9-7692-a4bf011ca70c" sum="139"/>
 		</payment>
-		<payment id="285f71c4-5511-11e9-7493-a4bf011ca70c" date="01.04.2019 14:51:02" number="КС00-000463" managerid="00ce1dd6-d36b-11e8-2094-a4bf011ca70c" curencyid="49555e84-7418-11e1-7387-c860000abaae">
+		<payment id="285f71c4-5511-11e9-7493-a4bf011ca70c" date="01.04.2019 14:51:02" number="КС00-000463" curencyid="49555e84-7418-11e1-7387-c860000abaae">
 			<paymentOrder id="baddd856-f201-11e8-ec9d-a4bf011ca70c" sum="17 050"/>
 		</payment>	
 	</payments>
