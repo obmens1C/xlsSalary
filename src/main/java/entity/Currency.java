@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "currencies")
+@Table(name = "s_currencies")
 public class Currency {
     @Id
     @Column(name = "id", unique = true)
@@ -33,14 +33,6 @@ public class Currency {
 
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
@@ -59,9 +51,17 @@ public class Currency {
     @Override
     public String toString() {
         return "Currency{" +
-        //        "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
+                ", value=" + value +
                 '}';
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public String getId() {

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "s_orders")
 public class Order {
     @Id
     @Column(name = "id", unique = true)
@@ -24,7 +24,7 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private double sum;
-    @ManyToMany(mappedBy = "orders")
+    @ManyToMany(targetEntity = Payment.class, mappedBy = "orders")
     /*@JoinTable(name = "payments",
             joinColumns = @JoinColumn(name = "paymentid"),
             inverseJoinColumns = @JoinColumn(name = "orderid"))*/

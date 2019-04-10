@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "managers")
+@Table(name = "s_managers")
 public class Manager {
     @Id
     @Column(name = "id", unique = true)
@@ -16,8 +16,8 @@ public class Manager {
     private int salary;
     @Column(name = "percent")
     private int percent;
-    /*@OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
-    private List<Order> orders;*/
+    @OneToMany(targetEntity = Order.class, mappedBy = "orders", fetch = FetchType.LAZY)
+    private List<Order> orders;
 
     public Manager(String id, String name) {
         this.id = id;

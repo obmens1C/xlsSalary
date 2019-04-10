@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "payments")
+@Table(name = "s_payments")
 public class Payment {
     @Id
     @Column(name = "id", unique = true)
@@ -16,10 +16,10 @@ public class Payment {
     private LocalDate date;
     @Column(name = "number")
     private String number;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "orders",
-            joinColumns = @JoinColumn(name = "orderid"),
-            inverseJoinColumns = @JoinColumn(name = "paymentid"))
+            joinColumns = @JoinColumn(name = "order"),
+            inverseJoinColumns = @JoinColumn(name = "payment"))
     private List<Order> orders;
     @Column(name = "sum")
     private double sum;
@@ -41,22 +41,22 @@ public class Payment {
         this.date = date;
         this.sum = sum;
         this.customer = customer;
-        //   this.order = null;
+        this.orders = null;
     }
 
-    Payment(LocalDate date, Order order, int sum, Customer customer) {
+    Payment(LocalDate date, List<Order> orders, int sum, Customer customer) {
         this.date = date;
-        //   this.order = order;
+        this.orders = orders;
         this.sum = sum;
         this.customer = customer;
     }
 
-    Payment(LocalDate date, Order order, int sum) {
+  /*  Payment(LocalDate date, List<Order> orders, int sum) {
         this.date = date;
-        //   this.order = order;
+        this.orders = orders;
         this.sum = sum;
-        this.customer = order.getCustomer();
-    }
+        this.customer = orders.getCustomer();
+    } */
 
     public Payment(String id, LocalDate date, String number, List<Order> orders, Currency currency, double sum) {
         this.id = id;
@@ -68,16 +68,15 @@ public class Payment {
         //this.manager = manager;
     }
 
-   /* @Override
+    @Override
     public int hashCode() {
-        return Objects.hash(date, order, customer, sum);
-    }*/
+        return Objects.hash(date, customer, sum);
+    }
 
     @Override
     public String toString() {
         return "Payment{" +
                 "date=" + date +
-                //    ", order=" + order +
                 ", sum=" + sum +
                 ", customer=" + customer +
                 '}';
@@ -109,15 +108,14 @@ public class Payment {
         this.date = date;
     }
 
-    /*
-        public Order getOrder() {
-            return order;
+        public List<Order> getOrder() {
+            return orders;
         }
 
-        public void setOrder(Order order) {
-            this.order = order;
+        public void setOrders(List<Order> orders) {
+            this.orders = orders;
         }
-    */
+
     public double getSum() {
         return sum;
     }
