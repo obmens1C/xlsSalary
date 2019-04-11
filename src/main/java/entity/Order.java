@@ -24,11 +24,15 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private double sum;
-    @ManyToMany(targetEntity = Payment.class, mappedBy = "orders")
-    /*@JoinTable(name = "payments",
+    /*@ManyToMany(targetEntity = Payment.class, mappedBy = "orders")
+    @JoinTable(name = "payments",
             joinColumns = @JoinColumn(name = "paymentid"),
             inverseJoinColumns = @JoinColumn(name = "orderid"))*/
-    private List<Payment> payments;
+    /*@ManyToMany
+    @JoinTable(name = "orders",
+            joinColumns = @JoinColumn(name = "payment_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id")))*/
+   // private List<Payment> payments;
     @ManyToOne
     @JoinColumn(name = "currency")
     private Currency currency;
@@ -45,7 +49,7 @@ public class Order {
         this.manager = manager;
         this.sum = sum;
         this.currency = currency;
-        this.payments = payments;
+     //   this.payments = payments;
     }
 
     public Order(String id, String number, LocalDate date, Customer customer, Manager manager, double sum, Currency currency) {
@@ -150,12 +154,12 @@ public class Order {
     public void setSum(double sum) {
         this.sum = sum;
     }
-
+/*
     public List<Payment> getPayment() {
         return payments;
     }
 
     public void setPayment(List<Payment> payments) {
         this.payments = payments;
-    }
+    }*/
 }

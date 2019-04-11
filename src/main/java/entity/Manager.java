@@ -16,8 +16,6 @@ public class Manager {
     private int salary;
     @Column(name = "percent")
     private int percent;
-    @OneToMany(targetEntity = Order.class, mappedBy = "orders", fetch = FetchType.LAZY)
-    private List<Order> orders;
 
     public Manager(String id, String name) {
         this.id = id;

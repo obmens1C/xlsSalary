@@ -16,11 +16,11 @@ public class Payment {
     private LocalDate date;
     @Column(name = "number")
     private String number;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    /*@ManyToMany
     @JoinTable(name = "orders",
-            joinColumns = @JoinColumn(name = "order"),
-            inverseJoinColumns = @JoinColumn(name = "payment"))
-    private List<Order> orders;
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "payment_id"))*/
+    //private List<Order> orders;
     @Column(name = "sum")
     private double sum;
     @ManyToOne
@@ -41,12 +41,12 @@ public class Payment {
         this.date = date;
         this.sum = sum;
         this.customer = customer;
-        this.orders = null;
+        //   this.orders = null;
     }
 
     Payment(LocalDate date, List<Order> orders, int sum, Customer customer) {
         this.date = date;
-        this.orders = orders;
+        //   this.orders = orders;
         this.sum = sum;
         this.customer = customer;
     }
@@ -62,7 +62,7 @@ public class Payment {
         this.id = id;
         this.date = date;
         this.number = number;
-        this.orders = orders;
+        //   this.orders = orders;
         this.currency = currency;
         this.sum = sum;
         //this.manager = manager;
@@ -107,15 +107,15 @@ public class Payment {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+/*
+    public List<Order> getOrder() {
+        return orders;
+    }
 
-        public List<Order> getOrder() {
-            return orders;
-        }
-
-        public void setOrders(List<Order> orders) {
-            this.orders = orders;
-        }
-
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+*/
     public double getSum() {
         return sum;
     }

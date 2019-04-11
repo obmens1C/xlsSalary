@@ -16,20 +16,11 @@ public class Customer {
     private String name;
     @Column(name = "percent")
     private int percent;
-    @OneToMany(targetEntity = Order.class, mappedBy = "orders", fetch = FetchType.LAZY)
-    private List<Order> orders;
 
     public Customer(String id, String name, int percent) {
         this.id = id;
         this.name = name;
         this.percent = percent;
-    }
-
-    public Customer(String id, String name, int percent, List<Order> orders) {
-        this.id = id;
-        this.name = name;
-        this.percent = percent;
-        this.orders = orders;
     }
 
     public Customer() {
@@ -76,13 +67,5 @@ public class Customer {
 
     public void setPercent(int percent) {
         this.percent = percent;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
     }
 }
