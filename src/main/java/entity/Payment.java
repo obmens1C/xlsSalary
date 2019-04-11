@@ -16,22 +16,17 @@ public class Payment {
     private LocalDate date;
     @Column(name = "number")
     private String number;
-    /*@ManyToMany
-    @JoinTable(name = "orders",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "payment_id"))*/
-    //private List<Order> orders;
+    @ManyToOne
+    @JoinColumn(name = "currency")
+    private Currency currency;
     @Column(name = "sum")
     private double sum;
     @ManyToOne
     @JoinColumn(name = "customer")
     private Customer customer;
-    /*@ManyToOne
-    @JoinColumn(name = "manager")
-    private Manager manager;*/
-    @ManyToOne
-    @JoinColumn(name = "currency")
-    private Currency currency;
+    @ManyToMany
+    @JoinTable(name = "s_order_mapping_payment")
+    private List<Order> orders;
 
     public Payment() {
 

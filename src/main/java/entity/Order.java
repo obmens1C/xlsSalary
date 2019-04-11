@@ -24,18 +24,12 @@ public class Order {
     private Manager manager;
     @Column(name = "sum")
     private double sum;
-    /*@ManyToMany(targetEntity = Payment.class, mappedBy = "orders")
-    @JoinTable(name = "payments",
-            joinColumns = @JoinColumn(name = "paymentid"),
-            inverseJoinColumns = @JoinColumn(name = "orderid"))*/
-    /*@ManyToMany
-    @JoinTable(name = "orders",
-            joinColumns = @JoinColumn(name = "payment_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id")))*/
-   // private List<Payment> payments;
     @ManyToOne
     @JoinColumn(name = "currency")
     private Currency currency;
+    @ManyToMany
+    @JoinTable(name = "s_order_mapping_payment")
+    private List<Payment> payments;
 
     Order() {
 
