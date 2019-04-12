@@ -140,9 +140,9 @@ public class ParserFrom1C {
             LocalDate paymentDate = LocalDate.parse(paymentNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
             String paymentNumber = paymentNodeMap.getNamedItem("number").getNodeValue();
 
-           /* String paymentOrderId = paymentNodeMap.getNamedItem("orderid").getNodeValue();
+            String paymentOrderId = paymentNodeMap.getNamedItem("orderid").getNodeValue();
             Order paymentOrder = getOrderById(paymentOrderId);
-*/
+
             String paymentCurrencyId = paymentNodeMap.getNamedItem("curencyid").getNodeValue();
             Currency paymentCurrency = getCurrencyById(paymentCurrencyId);
 
