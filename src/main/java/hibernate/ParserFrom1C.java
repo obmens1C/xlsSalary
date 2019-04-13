@@ -133,28 +133,38 @@ public class ParserFrom1C {
         List<Payment> payments = new ArrayList<>();
         NodeList paymentNodeList = document.getDocumentElement().getElementsByTagName("payment");
         for (int i = 0; i < paymentNodeList.getLength(); i++) {
-            Node orderNode = paymentNodeList.item(i);
-            NamedNodeMap paymentNodeMap = orderNode.getAttributes();
+            Node paymentNode = paymentNodeList.item(i);
+            NamedNodeMap paymentNodeMap = paymentNode.getAttributes();
             String paymentUID = paymentNodeMap.getNamedItem("id").getNodeValue();
             DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm:ss");
             LocalDate paymentDate = LocalDate.parse(paymentNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
             String paymentNumber = paymentNodeMap.getNamedItem("number").getNodeValue();
-/*
-            String paymentOrderId = paymentNodeMap.getNamedItem("orderid").getNodeValue();
-            Order paymentOrder = getOrderById(paymentOrderId);
-*/
+
+            double paymentSum = 0;
+
+            List<Order> paymentOrders = null;
+
+            NodeList orderNodeList = paymentNode.getChildNodes();
+            for (int j = 0; j < orderNodeList.getLength(); j++) {
+                Node orderNode = orderNodeList.item(j);
+
+                NamedNodeMap orderPaymentNamedNodeMap = orderNode.getAttributes();
+                String paymentOrderId = orderPaymentNamedNodeMap.getNamedItem("paymentOrder").getNodeValue();
+                Order paymentOrder = getOrderById(paymentOrderId);
+                paymentOrders.add(paymentOrder);
+
+                String textPaymentSum = paymentNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
+                paymentSum = Double.parseDouble(textPaymentSum.replace(",", "."));
+            }
+
+
             String paymentCurrencyId = paymentNodeMap.getNamedItem("curencyid").getNodeValue();
             Currency paymentCurrency = getCurrencyById(paymentCurrencyId);
 
-/*            String textPaymentSum = paymentNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
-            double paymentSum = Double.parseDouble(textPaymentSum.replace(",", "."));*/
-            double paymentSum = 0;
-
-            List<Order> paymentOrder = null;
             //  if(paymentOrder == null) {
             //     paymentOrder = new Order(paymentOrderId, paymentNumber, paymentDate, paymentManager, paymentSum, paymentCurrency);
             // }
-            payments.add(new Payment(paymentUID, paymentDate, paymentNumber, paymentOrder, paymentCurrency, paymentSum));
+            payments.add(new Payment(paymentUID, paymentDate, paymentNumber, paymentOrders, paymentCurrency, paymentSum));
         }
         return payments;
     }

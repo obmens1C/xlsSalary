@@ -57,10 +57,9 @@ public class Payment {
         this.id = id;
         this.date = date;
         this.number = number;
-        //   this.orders = orders;
+        this.orders = orders;
         this.currency = currency;
         this.sum = sum;
-        //this.manager = manager;
     }
 
     @Override
