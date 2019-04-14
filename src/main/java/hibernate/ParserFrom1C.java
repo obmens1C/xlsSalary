@@ -13,30 +13,23 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 public class ParserFrom1C {
-    Document document = null;
+    private Document document = null;
 
     public ParserFrom1C() {
         try {
             loadDocumentXML();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
     }
 
-    void loadDocumentXML() throws ParserConfigurationException, IOException, SAXException {
+    private void loadDocumentXML() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         document = documentBuilder.parse(new File("src\\main\\resources\\test.xml"));
@@ -175,8 +168,6 @@ public class ParserFrom1C {
         for (Currency currency : currencies) {
             try {
                 Factory.getInstance().getCurrencyDAO().addCurrency(currency);
-            } catch (SQLException e) {
-                e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -193,8 +184,6 @@ public class ParserFrom1C {
         for (Manager manager : managers) {
             try {
                 Factory.getInstance().getManagerDAO().addManager(manager);
-            } catch (SQLException e) {
-                e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -211,8 +200,6 @@ public class ParserFrom1C {
         for (Customer customer : customers) {
             try {
                 Factory.getInstance().getCustomerDAO().addCustomer(customer);
-            } catch (SQLException e) {
-                e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -229,8 +216,6 @@ public class ParserFrom1C {
         for (Order order : orders) {
             try {
                 Factory.getInstance().getOrderDAO().addOrder(order);
-            } catch (SQLException e) {
-                e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -247,8 +232,6 @@ public class ParserFrom1C {
         for (Payment payment : payments) {
             try {
                 Factory.getInstance().getPaymentDAO().addPayment(payment);
-            } catch (SQLException e) {
-                e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -259,14 +242,12 @@ public class ParserFrom1C {
         }
     }
 
-    public Currency getCurrencyById(String currencyId) {
+    private Currency getCurrencyById(String currencyId) {
         Session session = null;
 
         Currency currency = null;
         try {
             currency = Factory.getInstance().getCurrencyDAO().getCurrencyById(currencyId);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -277,14 +258,12 @@ public class ParserFrom1C {
         return currency;
     }
 
-    public Manager getManagerById(String managerId) {
+    private Manager getManagerById(String managerId) {
         Session session = null;
 
         Manager manager = null;
         try {
             manager = Factory.getInstance().getManagerDAO().getManagerById(managerId);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -295,14 +274,12 @@ public class ParserFrom1C {
         return manager;
     }
 
-    public Customer getCustomerById(String customreId) {
+    private Customer getCustomerById(String customreId) {
         Session session = null;
 
         Customer customer = null;
         try {
             customer = Factory.getInstance().getCustomerDAO().getCustomerById(customreId);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -313,14 +290,12 @@ public class ParserFrom1C {
         return customer;
     }
 
-    public Order getOrderById(String orderId) {
+    private Order getOrderById(String orderId) {
         Session session = null;
 
         Order order = null;
         try {
             order = Factory.getInstance().getOrderDAO().getOrderById(orderId);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -331,7 +306,7 @@ public class ParserFrom1C {
         return order;
     }
 
-    public Payment getPaymentById(String paymentId) {
+ /*   public Payment getPaymentById(String paymentId) {
         Session session = null;
 
         Payment payment = null;
@@ -347,9 +322,9 @@ public class ParserFrom1C {
             }
         }
         return payment;
-    }
+    } */
 
-    public void printCurrenciesDatabase() {
+ /*   public void printCurrenciesDatabase() {
         Session session = null;
         try {
             Collection<Currency> currencies = Factory.getInstance().getCurrencyDAO().getAllCurrences();
@@ -368,9 +343,9 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-    }
+    } */
 
-    public void printManagersDatabase() {
+  /*  public void printManagersDatabase() {
         Session session = null;
         try {
             Collection<Manager> managers = Factory.getInstance().getManagerDAO().getAllManagers();
@@ -389,9 +364,9 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-    }
+    } */
 
-    public void printCustomersDatabase() {
+  /*  public void printCustomersDatabase() {
         Session session = null;
         try {
             Collection<Customer> customers = Factory.getInstance().getCustomerDAO().getAllCustomers();
@@ -410,9 +385,9 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-    }
+    } */
 
-    public void printOrdersDatabase() {
+ /*   public void printOrdersDatabase() {
         Session session = null;
         try {
             Collection<Order> orders = Factory.getInstance().getOrderDAO().getAllOrders();
@@ -431,9 +406,9 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-    }
+    } */
 
-    public void printPaymentsDatabase() {
+ /*   public void printPaymentsDatabase() {
         Session session = null;
         try {
             Collection<Payment> payments = Factory.getInstance().getPaymentDAO().getAllPayments();
@@ -452,5 +427,5 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-    }
+    } */
 }
