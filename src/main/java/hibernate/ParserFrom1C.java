@@ -137,7 +137,7 @@ public class ParserFrom1C {
 
             List<Order> paymentOrders = null;
 
-            NodeList orderNodeList = paymentNode.getChildNodes();
+        /*    NodeList orderNodeList = paymentNode.getChildNodes();
             for (int j = 0; j < orderNodeList.getLength(); j++) {
                 Node orderNode = orderNodeList.item(j);
 
@@ -148,15 +148,12 @@ public class ParserFrom1C {
 
                 String textPaymentSum = paymentNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
                 paymentSum = Double.parseDouble(textPaymentSum.replace(",", "."));
-            }
+            }*/
 
 
             String paymentCurrencyId = paymentNodeMap.getNamedItem("curencyid").getNodeValue();
             Currency paymentCurrency = getCurrencyById(paymentCurrencyId);
 
-            //  if(paymentOrder == null) {
-            //     paymentOrder = new Order(paymentOrderId, paymentNumber, paymentDate, paymentManager, paymentSum, paymentCurrency);
-            // }
             payments.add(new Payment(paymentUID, paymentDate, paymentNumber, paymentOrders, paymentCurrency, paymentSum));
         }
         return payments;
