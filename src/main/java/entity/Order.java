@@ -35,6 +35,10 @@ public class Order {
 
     }
 
+    public Order(String id) {
+        this.id = id;
+    }
+
     public Order(String id, String number, LocalDate date, Customer customer, Manager manager, double sum, Currency currency, List<Payment> payments) {
         this.id = id;
         this.number = number;

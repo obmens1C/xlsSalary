@@ -2,10 +2,7 @@ package hibernate;
 
 import entity.*;
 import org.hibernate.Session;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -124,7 +121,8 @@ public class ParserFrom1C {
 
     public List<Payment> parsePayments() {
         List<Payment> payments = new ArrayList<>();
-        NodeList paymentNodeList = document.getDocumentElement().getElementsByTagName("payment");
+        Element root = document.getDocumentElement();
+        NodeList paymentNodeList = root.getElementsByTagName("payment");
         for (int i = 0; i < paymentNodeList.getLength(); i++) {
             Node paymentNode = paymentNodeList.item(i);
             NamedNodeMap paymentNodeMap = paymentNode.getAttributes();
@@ -135,21 +133,24 @@ public class ParserFrom1C {
 
             double paymentSum = 0;
 
-            List<Order> paymentOrders = null;
+            List<Order> paymentOrders = new ArrayList<>();
 
-        /*    NodeList orderNodeList = paymentNode.getChildNodes();
+            NodeList orderNodeList = paymentNode.getChildNodes();
             for (int j = 0; j < orderNodeList.getLength(); j++) {
                 Node orderNode = orderNodeList.item(j);
+                if (orderNode.getNodeName().equals("paymentOrder")) {
+                    NamedNodeMap orderPaymentNamedNodeMap = orderNode.getAttributes();
+                    String paymentOrderId = orderPaymentNamedNodeMap.getNamedItem("id").getNodeValue();
+                    Order paymentOrder = getOrderById(paymentOrderId);
+                    if(paymentOrder == null) {
+                        paymentOrder = new Order(paymentOrderId);
+                    }
+                    paymentOrders.add(paymentOrder);
 
-                NamedNodeMap orderPaymentNamedNodeMap = orderNode.getAttributes();
-                String paymentOrderId = orderPaymentNamedNodeMap.getNamedItem("paymentOrder").getNodeValue();
-                Order paymentOrder = getOrderById(paymentOrderId);
-                paymentOrders.add(paymentOrder);
-
-                String textPaymentSum = paymentNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
-                paymentSum = Double.parseDouble(textPaymentSum.replace(",", "."));
-            }*/
-
+                    String textPaymentSum = orderPaymentNamedNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
+                    paymentSum = Double.parseDouble(textPaymentSum.replace(",", "."));
+                }
+            }
 
             String paymentCurrencyId = paymentNodeMap.getNamedItem("curencyid").getNodeValue();
             Currency paymentCurrency = getCurrencyById(paymentCurrencyId);
