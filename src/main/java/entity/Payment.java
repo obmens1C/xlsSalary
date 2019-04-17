@@ -36,12 +36,10 @@ public class Payment {
         this.date = date;
         this.sum = sum;
         this.customer = customer;
-        //   this.orders = null;
     }
 
     Payment(LocalDate date, List<Order> orders, int sum, Customer customer) {
         this.date = date;
-        //   this.orders = orders;
         this.sum = sum;
         this.customer = customer;
     }
