@@ -1,9 +1,6 @@
 package entity;
 
 import javax.persistence.*;
-import java.rmi.server.UID;
-import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
