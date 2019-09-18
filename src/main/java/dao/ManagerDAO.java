@@ -4,6 +4,7 @@ import entity.Manager;
 import java.sql.SQLException;
 import java.util.Collection;
 
+@Deprecated
 public interface ManagerDAO {
     public void addManager(Manager manager) throws SQLException, Exception;
     public void updateManager(Manager manager) throws SQLException, Exception;

@@ -10,9 +10,12 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class ParserFrom1C {
@@ -32,6 +35,90 @@ public class ParserFrom1C {
         document = documentBuilder.parse(new File("src\\main\\resources\\test.xml"));
     }
 
+    public List<Administrator> parseAdministrators() {
+        List<Administrator> administrators = new ArrayList<>();
+
+        NodeList administratorNodeList = document.getDocumentElement().getElementsByTagName("Administrator");
+        for (int i = 0; i < administratorNodeList.getLength(); i++) {
+            Node administratorNode = administratorNodeList.item(i);
+            NamedNodeMap administratorNodeMap = administratorNode.getAttributes();
+            String administratorUID = administratorNodeMap.getNamedItem("id").getNodeValue();
+            String administratorName = administratorNodeMap.getNamedItem("name").getNodeValue();
+            Administrator administrator = new Administrator(administratorUID, administratorName);
+            administrators.add(administrator);
+        }
+        return administrators;
+    }
+
+    public void addAdministratorsToDatabase(List<Administrator> administrators) {
+        Session session = null;
+
+        for (Administrator administrator : administrators) {
+            try {
+                Factory.getInstance().getAdministratorDAO().addAdministrator(administrator);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+            }
+        }
+    }
+
+    private Administrator getAdministratorById(String administratorId) {
+        Session session = null;
+
+        Administrator administrator = null;
+        try {
+            administrator = Factory.getInstance().getAdministratorDAO().getAdministratorById(administratorId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return administrator;
+    }
+
+    public void printAdministratorsDatabase() {
+        Session session = null;
+        try {
+            Collection<Administrator> administrators = Factory.getInstance().getAdministratorDAO().getAllAdministrators();
+            Iterator<Administrator> administratorIterator = administrators.iterator();
+            System.out.println("list of administrators:");
+            while (administratorIterator.hasNext()) {
+                Administrator administrator = (Administrator) administratorIterator.next();
+                System.out.println(administrator);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
+    public List<Subdivision> parseSubdivisions() {
+        List<Subdivision> subdivisions = new ArrayList<>();
+
+        NodeList subdivisionNodeList = document.getDocumentElement().getElementsByTagName("Subdivision");
+        for (int i = 0; i < subdivisionNodeList.getLength(); i++) {
+            Node subdivisionNode = subdivisionNodeList.item(i);
+            NamedNodeMap subdivisionNodeMap = subdivisionNode.getAttributes();
+            String subdivisionUID = subdivisionNodeMap.getNamedItem("id").getNodeValue();
+            String subdivisionName = subdivisionNodeMap.getNamedItem("name").getNodeValue();
+            Subdivision subdivision = new Subdivision(subdivisionUID, subdivisionName);
+            subdivisions.add(subdivision);
+        }
+        return subdivisions;
+    }
+
+    /*
     public List<Currency> parseCurrencies() {
         List<Currency> currencies = new ArrayList<>();
 
@@ -304,7 +391,7 @@ public class ParserFrom1C {
         return order;
     }
 
- /*   public Payment getPaymentById(String paymentId) {
+    public Payment getPaymentById(String paymentId) {
         Session session = null;
 
         Payment payment = null;
@@ -320,9 +407,9 @@ public class ParserFrom1C {
             }
         }
         return payment;
-    } */
+    }
 
- /*   public void printCurrenciesDatabase() {
+    public void printCurrenciesDatabase() {
         Session session = null;
         try {
             Collection<Currency> currencies = Factory.getInstance().getCurrencyDAO().getAllCurrences();
@@ -341,9 +428,9 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-    } */
+    }
 
-  /*  public void printManagersDatabase() {
+    public void printManagersDatabase() {
         Session session = null;
         try {
             Collection<Manager> managers = Factory.getInstance().getManagerDAO().getAllManagers();
@@ -362,9 +449,9 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-    } */
+    }
 
-  /*  public void printCustomersDatabase() {
+    public void printCustomersDatabase() {
         Session session = null;
         try {
             Collection<Customer> customers = Factory.getInstance().getCustomerDAO().getAllCustomers();
@@ -383,9 +470,9 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-    } */
+    }
 
- /*   public void printOrdersDatabase() {
+    public void printOrdersDatabase() {
         Session session = null;
         try {
             Collection<Order> orders = Factory.getInstance().getOrderDAO().getAllOrders();
@@ -404,9 +491,9 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-    } */
+    }
 
- /*   public void printPaymentsDatabase() {
+    public void printPaymentsDatabase() {
         Session session = null;
         try {
             Collection<Payment> payments = Factory.getInstance().getPaymentDAO().getAllPayments();

@@ -6,11 +6,14 @@ import daoImpl.*;
 
 public class Factory {
     private static Factory instance = null;
-    private static ManagerDAO managerDAO = null;
-    private static CustomerDAO customerDAO = null;
+    private static AdministratorDAO administratorDAO = null;
+    private static SubdivisionDAO subdivisionDAO = null;
+
+    //private static ManagerDAO managerDAO = null;
+    /*private static CustomerDAO customerDAO = null;
     private static OrderDAO orderDAO = null;
     private static PaymentDAO paymentDAO = null;
-    private static CurrencyDAO currencyDAO = null;
+    private static CurrencyDAO currencyDAO = null;*/
 
     public static synchronized Factory getInstance() {
         if (instance == null) {
@@ -19,21 +22,28 @@ public class Factory {
         return instance;
     }
 
-    public ManagerDAO getManagerDAO() {
+    public AdministratorDAO getAdministratorDAO() {
+        if (administratorDAO == null) {
+            administratorDAO = new AdministratorDAOImpl();
+        }
+        return administratorDAO;
+    }
+    /*public ManagerDAO getManagerDAO() {
         if (managerDAO == null) {
             managerDAO = new ManagerDAOImpl();
         }
         return managerDAO;
-    }
+    }*/
 
-    public CustomerDAO getCustomerDAO() {
-        if (customerDAO == null) {
-            customerDAO = new CustomerDAOImpl();
+    public SubdivisionDAO getSubdivisionDAO() {
+        if (subdivisionDAO == null) {
+            subdivisionDAO = new SubdivisionDAOImpl();
         }
-        return customerDAO;
+
+        return subdivisionDAO;
     }
 
-    public OrderDAO getOrderDAO() {
+   /* public OrderDAO getOrderDAO() {
         if (orderDAO == null) {
             orderDAO = new OrderDAOImpl();
         }
@@ -52,5 +62,5 @@ public class Factory {
             currencyDAO = new CurrencyDAOImpl();
         }
         return currencyDAO;
-    }
+    }*/
 }

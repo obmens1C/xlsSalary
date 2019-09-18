@@ -9,19 +9,20 @@ import java.util.List;
 public class TestCalculate {
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
         ParserFrom1C parser = new ParserFrom1C();
-        parser.addCurrenciesToDatabase(parser.parseCurrencies());
-        //parser.printCurrenciesDatabase();
 
-        parser.addManagersToDatabase(parser.parseManagers());
-        //parser.printManagersDatabase();
+        parser.addAdministratorsToDatabase(parser.parseAdministrators());
+        parser.printAdministratorsDatabase();
 
-        parser.addCustomersToDatabase(parser.parseCustomers());
+        /*parser.addSubdivisionsToDatabase(parser.parseSubdivisions());
+        parser.printSubdivisionsDatabase();
+*/
+        //parser.addCustomersToDatabase(parser.parseCustomers());
         //parser.printCustomersDatabase();
 
-        parser.addOrdersToDatabase(parser.parseOrders());
+        //parser.addOrdersToDatabase(parser.parseOrders());
     //    parser.printOrdersDatabase();
 
-        parser.addPaymentsToDatabase(parser.parsePayments());
+        //parser.addPaymentsToDatabase(parser.parsePayments());
         System.exit(0);
     }
 }

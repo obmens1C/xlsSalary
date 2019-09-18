@@ -1,179 +1,72 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<upload>
-    <currencies>
-        <currency id="49555e84-7418-11e1-7387-c860000abaae" name="РУБ." value="0"/>
-        <currency id="492f8e8e-bb15-11e8-a383-a4bf011ca70c" name="KZT" value="0"/>
-    </currencies>
-    <managers>
-        <manager id="d07b9162-6269-11e8-0686-a4bf011ca70c" name="Дружинин Олег Витальевич" salary="15 500" percent="6"/>
-        <manager id="0530b632-2aa9-11e9-1d85-a4bf011ca70c" name="Дубровин Александр Николаевич" salary="15 500"
-                 percent="6"/>
-        <manager id="473d0992-d368-11e8-2094-a4bf011ca70c" name="Рубцов Роман Дмитриевич" salary="20 000" percent="6"/>
-        <manager id="92dcf4cc-a81f-11e7-2f88-a4bf011ca70c" name="Орехов Владислав Борисович" salary="20 000"
-                 percent="6"/>
-        <manager id="a3599ee4-8d90-11e7-3491-a4bf011ca70c" name="Белобородова Марина Юрьевна" salary="0" percent="6"/>
-        <manager id="39d0a930-e945-11e6-3883-c860000abaae" name="Залялютдинов Тимур Ренатович" salary="25 000"
-                 percent="6"/>
-        <manager id="6dbd1c5c-b116-11e8-4897-a4bf011ca70c" name="Залялютдинов Дмитрий Ренатович" salary="20 000"
-                 percent="6"/>
-        <manager id="93a83782-6dea-11e7-569c-a4bf011ca70c" name="Бравиков Александр Анатольевич" salary="15 500"
-                 percent="6"/>
-        <manager id="974ef116-d8aa-11e2-c886-c860000abaae" name="Хворов Владимир Владимирович" salary="25 000"
-                 percent="6"/>
-        <manager id="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c" name="Рыбаков Семен Сергеевич" salary="20 000" percent="6"/>
-        <manager id="3dab5774-76e4-11e4-ee8f-c860000abaae" name="Шиндяпин Александр Витальевич" salary="15 500"
-                 percent="6"/>
-    </managers>
-    <customers>
-        <customer id="466b15c6-d680-11e7-0a88-a4bf011ca70c" name="ИП Иванов Анатолий Вячеславович г.Кирсанов"
-                  percent="0"/>
-        <customer id="ef2cb128-d992-11e7-0a88-a4bf011ca70c" name="ООО ПКФ &quot;Сфера&quot; г.Ульяновск" percent="0"/>
-        <customer id="53fcceac-422b-11e8-0b90-a4bf011ca70c" name="ИП Валавина Анастасия Андреевна г. Челябинск"
-                  percent="0"/>
-        <customer id="80cd101a-4fe3-11e9-1293-a4bf011ca70c" name="ООО &quot;ПРОЗРЕНИЕ&quot; г.Тольятти" percent="0"/>
-        <customer id="48335312-f375-11e6-1296-c860000abaae" name="ООО &quot;Арника-Уфа&quot;    г.Уфа" percent="0"/>
-        <customer id="6b9688fa-e232-11e6-1898-c860000abaae" name="ИП Никонова Галина Валерьевна  г.Воронеж"
-                  percent="0"/>
-        <customer id="b80c3148-aa74-11e7-2f88-a4bf011ca70c" name="АО «ОАС» г. Челябинск" percent="5"/>
-        <customer id="586c3350-e88f-11e8-4c83-a4bf011ca70c" name="ИП Лебедев Александр Михайлович" percent="0"/>
-        <customer id="75cc8726-f495-11e8-539b-a4bf011ca70c" name="ИП Мухамедов Альберт Ренатович г.Уфа" percent="0"/>
-        <customer id="2f4c2c4e-67e1-11e7-569c-a4bf011ca70c"
-                  name="ИП Страхов Владимир Витальевич &quot;ОфтаКИТ&quot; г.Ярославль" percent="0"/>
-        <customer id="3c9ae438-5526-11e9-7493-a4bf011ca70c" name="ИП Зеленова Марина Юрьевна г.Кемерово" percent="0"/>
-        <customer id="12eb5a78-55e4-11e9-7493-a4bf011ca70c" name="ИП Ушаков Николай Алексеевич    г. Томск"
-                  percent="0"/>
-        <customer id="c120315e-56a2-11e9-7493-a4bf011ca70c" name="ИП Азанова Наталья Михайловна" percent="0"/>
-        <customer id="f4c75cf4-5778-11e9-7493-a4bf011ca70c" name="ИП Никонов Александр Михайлович" percent="0"/>
-        <customer id="53b48b16-e356-11e8-8f81-a4bf011ca70c" name="ООО &quot;Авиценна&quot; г.Тамбов" percent="0"/>
-        <customer id="e17cb75a-154a-11e8-8f88-a4bf011ca70c" name="ООО &quot;ЭЛЬ ЛИКОН&quot; г.Томск" percent="0"/>
-        <customer id="44a86ab6-16fb-11e8-8f88-a4bf011ca70c" name="И.П. Дорогунцова И.В.  &quot;100%&quot;  г. Кемерово"
-                  percent="0"/>
-        <customer id="58d2c0c4-0758-11e9-c18a-a4bf011ca70c" name="ИП Морозова Марина Владимировна" percent="0"/>
-        <customer id="75e4f4c4-bc88-11e6-f783-c860000abaae" name="Компания &quot;Оптик групп&quot; г.Кострома"
-                  percent="0"/>
-    </customers>
-    <orders>
-        <order id="4b62ec14-5147-11e9-d48d-a4bf011ca70c" number="КС00-000578" date="01.04.2019 0:00:00"
-               customerid="75cc8726-f495-11e8-539b-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="254 320" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="7911d28e-5439-11e9-7493-a4bf011ca70c" number="КС00-000596" date="01.04.2019 7:49:03"
-               customerid="44a86ab6-16fb-11e8-8f88-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="19 690" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="42835ef0-5442-11e9-7493-a4bf011ca70c" number="КС00-000597" date="01.04.2019 8:51:57"
-               customerid="44a86ab6-16fb-11e8-8f88-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="2 595" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="ae08a462-5458-11e9-7493-a4bf011ca70c" number="КС00-000598" date="01.04.2019 11:32:26"
-               customerid="58d2c0c4-0758-11e9-c18a-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="16 340" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="4787f4a8-545e-11e9-7493-a4bf011ca70c" number="КС00-000599" date="01.04.2019 12:12:31"
-               customerid="48335312-f375-11e6-1296-c860000abaae" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="29 725,5" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="c2ca2878-54fb-11e9-7493-a4bf011ca70c" number="КС00-000600" date="02.04.2019 6:59:49"
-               customerid="3c9ae438-5526-11e9-7493-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="28 245" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="9626dcca-5506-11e9-7493-a4bf011ca70c" number="КС00-000601" date="02.04.2019 8:17:18"
-               customerid="3c9ae438-5526-11e9-7493-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="5 787" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="9e490070-550d-11e9-7493-a4bf011ca70c" number="КС00-000602" date="02.04.2019 9:07:38"
-               customerid="53fcceac-422b-11e8-0b90-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="16 295" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="48ef8d8a-5515-11e9-7493-a4bf011ca70c" number="КС00-000603" date="02.04.2019 10:02:31"
-               customerid="53fcceac-422b-11e8-0b90-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="1 605" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="649fa97e-5516-11e9-7493-a4bf011ca70c" number="КС00-000604" date="02.04.2019 10:10:27"
-               customerid="466b15c6-d680-11e7-0a88-a4bf011ca70c" managerid="0c7bee9c-aa7d-11e6-6b97-c860000abaae"
-               managername="Крюк Екатерина Ивановна" sum="9 390" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="7eaf18d6-552f-11e9-7493-a4bf011ca70c" number="КС00-000605" date="02.04.2019 13:10:08"
-               customerid="b80c3148-aa74-11e7-2f88-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="32 360" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="cdfe8e72-553d-11e9-7493-a4bf011ca70c" number="КО00-000053" date="02.04.2019 14:52:34"
-               customerid="b80c3148-aa74-11e7-2f88-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="8 530" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="8ff37408-5542-11e9-7493-a4bf011ca70c" number="КС00-000606" date="02.04.2019 15:26:38"
-               customerid="b80c3148-aa74-11e7-2f88-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="2 810" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="e8f11ea2-5542-11e9-7493-a4bf011ca70c" number="КО00-000054" date="02.04.2019 15:29:07"
-               customerid="b80c3148-aa74-11e7-2f88-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="700" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="e4647020-554f-11e9-7493-a4bf011ca70c" number="КС00-000607" date="02.04.2019 17:02:03"
-               customerid="75e4f4c4-bc88-11e6-f783-c860000abaae" managerid="0530b632-2aa9-11e9-1d85-a4bf011ca70c"
-               managername="Дубровин Александр Николаевич" sum="41 520"
-               curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="9f656894-55d6-11e9-7493-a4bf011ca70c" number="КС00-000608" date="03.04.2019 9:06:29"
-               customerid="12eb5a78-55e4-11e9-7493-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="14 573,25" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="d44c7eea-55da-11e9-7493-a4bf011ca70c" number="КС00-000609" date="03.04.2019 9:36:36"
-               customerid="12eb5a78-55e4-11e9-7493-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="16 600,5" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="1c4b4bb8-55e0-11e9-7493-a4bf011ca70c" number="КС00-000610" date="03.04.2019 10:14:24"
-               customerid="12eb5a78-55e4-11e9-7493-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="6 859,5" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="6bf2f61e-55e7-11e9-7493-a4bf011ca70c" number="КС00-000611" date="03.04.2019 11:06:44"
-               customerid="2f4c2c4e-67e1-11e7-569c-a4bf011ca70c" managerid="0530b632-2aa9-11e9-1d85-a4bf011ca70c"
-               managername="Дубровин Александр Николаевич" sum="1 650"
-               curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="635f2360-55ec-11e9-7493-a4bf011ca70c" number="КС00-000612" date="03.04.2019 11:42:17"
-               customerid="586c3350-e88f-11e8-4c83-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="27 527,25" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="cb0841cc-55f1-11e9-7493-a4bf011ca70c" number="КС00-000613" date="03.04.2019 12:20:59"
-               customerid="586c3350-e88f-11e8-4c83-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="11 832" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="ae5d657e-55f2-11e9-7493-a4bf011ca70c" number="КС00-000614" date="03.04.2019 12:27:20"
-               customerid="586c3350-e88f-11e8-4c83-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="301,75" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="33e16310-55fa-11e9-7493-a4bf011ca70c" number="КС00-000615" date="03.04.2019 13:21:11"
-               customerid="c120315e-56a2-11e9-7493-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="14 297,5" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="f493f2ba-55fc-11e9-7493-a4bf011ca70c" number="КС00-000616" date="03.04.2019 13:40:53"
-               customerid="c120315e-56a2-11e9-7493-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="6 583,5" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="837d4268-55ff-11e9-7493-a4bf011ca70c" number="КС00-000617" date="03.04.2019 13:59:12"
-               customerid="c120315e-56a2-11e9-7493-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="1 168,5" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="573f9f18-5602-11e9-7493-a4bf011ca70c" number="КС00-000618" date="03.04.2019 14:19:26"
-               customerid="75e4f4c4-bc88-11e6-f783-c860000abaae" managerid="0530b632-2aa9-11e9-1d85-a4bf011ca70c"
-               managername="Дубровин Александр Николаевич" sum="35 560"
-               curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="9cb2ebee-56ad-11e9-7493-a4bf011ca70c" number="КС00-000621" date="04.04.2019 10:45:26"
-               customerid="e17cb75a-154a-11e8-8f88-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="33 983" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="8efe89ea-56b2-11e9-7493-a4bf011ca70c" number="КС00-000622" date="04.04.2019 11:20:51"
-               customerid="e17cb75a-154a-11e8-8f88-a4bf011ca70c" managerid="d07b9162-6269-11e8-0686-a4bf011ca70c"
-               managername="Дружинин Олег Витальевич" sum="4 781,25" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="f0b7b804-56b8-11e9-7493-a4bf011ca70c" number="КС00-000623" date="04.04.2019 12:06:32"
-               customerid="53b48b16-e356-11e8-8f81-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="175" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="c3924b06-576b-11e9-7493-a4bf011ca70c" number="КС00-000624" date="05.04.2019 9:26:36"
-               customerid="ef2cb128-d992-11e7-0a88-a4bf011ca70c" managerid="0530b632-2aa9-11e9-1d85-a4bf011ca70c"
-               managername="Дубровин Александр Николаевич" sum="16 947,3"
-               curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="6dcc746e-5773-11e9-7493-a4bf011ca70c" number="КС00-000625" date="05.04.2019 10:21:28"
-               customerid="f4c75cf4-5778-11e9-7493-a4bf011ca70c" managerid="0530b632-2aa9-11e9-1d85-a4bf011ca70c"
-               managername="Дубровин Александр Николаевич" sum="51 412,5"
-               curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="8d0b21f2-5775-11e9-7493-a4bf011ca70c" number="КС00-000626" date="05.04.2019 10:36:40"
-               customerid="6b9688fa-e232-11e6-1898-c860000abaae" managerid="0530b632-2aa9-11e9-1d85-a4bf011ca70c"
-               managername="Дубровин Александр Николаевич" sum="19 089"
-               curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-        <order id="02621f8c-578a-11e9-7493-a4bf011ca70c" number="КС00-000627" date="05.04.2019 13:03:06"
-               customerid="80cd101a-4fe3-11e9-1293-a4bf011ca70c" managerid="0de6ba70-ab9b-11e8-dc81-a4bf011ca70c"
-               managername="Рыбаков Семен Сергеевич" sum="19 605" curencyid="49555e84-7418-11e1-7387-c860000abaae"/>
-    </orders>
-    <payments>
-        <payment id="7c005cc4-5126-11e9-d48d-a4bf011ca70c" date="01.04.2019 9:42:49" number="КС00-000028" curencyid="49555e84-7418-11e1-7387-c860000abaae">
-            <paymentOrder id="4f263dac-ef3a-11e8-ab8c-a4bf011ca70c" sum="29 853"/>
-        </payment>
-        <payment id="b348a9d8-550f-11e9-7493-a4bf011ca70c" date="01.04.2019 14:50:57" number="КС00-000458" curencyid="49555e84-7418-11e1-7387-c860000abaae">
-            <paymentOrder id="1f891ac0-2891-11e9-1d85-a4bf011ca70c" sum="1 675"/>
-            <paymentOrder id="8607fe4a-28a7-11e9-1d85-a4bf011ca70c" sum="11 120"/>
-        </payment>
-        <payment id="163d4412-5511-11e9-7493-a4bf011ca70c" date="01.04.2019 14:51:01" number="КС00-000462" curencyid="49555e84-7418-11e1-7387-c860000abaae">
-            <paymentOrder id="8d8c981e-3fcd-11e9-7692-a4bf011ca70c" sum="1 400"/>
-            <paymentOrder id="f35c71a0-3fcd-11e9-7692-a4bf011ca70c" sum="4 150"/>
-            <paymentOrder id="48e133c2-3fce-11e9-7692-a4bf011ca70c" sum="139"/>
-        </payment>
-        <payment id="285f71c4-5511-11e9-7493-a4bf011ca70c" date="01.04.2019 14:51:02" number="КС00-000463" curencyid="49555e84-7418-11e1-7387-c860000abaae">
-            <paymentOrder id="baddd856-f201-11e8-ec9d-a4bf011ca70c" sum="17 050"/>
-        </payment>
-    </payments>
-</upload>
+<Upload>
+	<Subdivisions>
+		<Subdivision id="30d13f70-585b-11e4-a29f-c860000abaae" name="МедЦентр Чичерина" proceeds="170 040"/>
+		<Subdivision id="1c9863de-ef28-11e5-c480-c860000abaae" name="МедЦентр Гоголя" proceeds="564 495"/>
+	</Subdivisions>
+	<Salaries>
+		<Salary date="18.09.2019 14:13:10" subdivision="30d13f70-585b-11e4-a29f-c860000abaae" salary="15 000"/>
+		<Salary date="18.09.2019 14:13:10" subdivision="1c9863de-ef28-11e5-c480-c860000abaae" salary="15 000"/>
+	</Salaries>
+	<Administrators>
+		<Administrator id="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" name="Томилина Ирина Дмитриевна"/>
+		<Administrator id="2737a19e-a811-11e7-2f88-a4bf011ca70c" name="Чепурнова Елена Борисовна"/>
+		<Administrator id="7d90f718-ef24-11e5-c480-c860000abaae" name="Давыдова Надежда Николаевна"/>
+		<Administrator id="34796a8a-1358-11e6-919d-c860000abaae" name="Тютикова Елена Викторовна"/>
+	</Administrators>
+	<Workshifts>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="01.08.2019 8:51:14" clousingdate="01.08.2019 18:17:57" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="01.08.2019 7:52:38" clousingdate="01.08.2019 19:00:52" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="02.08.2019 8:47:13" clousingdate="02.08.2019 18:00:03" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="02.08.2019 7:58:27" clousingdate="02.08.2019 19:00:05" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="03.08.2019 8:00:19" clousingdate="03.08.2019 17:00:22" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="04.08.2019 7:50:50" clousingdate="04.08.2019 13:35:50" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="05.08.2019 8:48:30" clousingdate="05.08.2019 18:00:03" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="05.08.2019 7:52:08" clousingdate="05.08.2019 18:57:30" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="06.08.2019 8:44:53" clousingdate="06.08.2019 18:01:19" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="06.08.2019 7:59:21" clousingdate="06.08.2019 19:00:05" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="07.08.2019 8:43:40" clousingdate="07.08.2019 18:00:16" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="07.08.2019 7:37:36" clousingdate="07.08.2019 19:00:02" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="08.08.2019 8:42:38" clousingdate="08.08.2019 18:00:34" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="08.08.2019 7:51:54" clousingdate="08.08.2019 19:01:11" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="09.08.2019 8:41:46" clousingdate="09.08.2019 18:01:17" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="09.08.2019 7:53:54" clousingdate="09.08.2019 19:03:40" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="10.08.2019 8:03:48" clousingdate="10.08.2019 17:00:37" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="11.08.2019 7:47:38" clousingdate="11.08.2019 13:25:25" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="12.08.2019 8:47:24" clousingdate="12.08.2019 18:00:05" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="12.08.2019 7:57:13" clousingdate="12.08.2019 19:00:02" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="13.08.2019 8:46:47" clousingdate="13.08.2019 18:00:28" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="13.08.2019 8:07:08" clousingdate="13.08.2019 19:00:01" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="14.08.2019 8:50:17" clousingdate="14.08.2019 18:03:49" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="14.08.2019 7:23:31" clousingdate="14.08.2019 19:01:42" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="15.08.2019 8:50:25" clousingdate="15.08.2019 18:06:36" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="15.08.2019 7:49:14" clousingdate="15.08.2019 19:17:07" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="16.08.2019 8:36:52" clousingdate="16.08.2019 18:00:14" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="16.08.2019 7:37:39" clousingdate="16.08.2019 19:00:08" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="17.08.2019 7:42:19" clousingdate="17.08.2019 17:00:19" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="18.08.2019 7:46:36" clousingdate="18.08.2019 13:00:10" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="19.08.2019 8:45:58" clousingdate="19.08.2019 17:59:18" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="19.08.2019 7:51:44" clousingdate="19.08.2019 19:00:51" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="20.08.2019 8:41:07" clousingdate="20.08.2019 18:00:02" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="20.08.2019 7:48:22" clousingdate="20.08.2019 19:02:49" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="21.08.2019 8:46:42" clousingdate="21.08.2019 18:07:36" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="21.08.2019 7:45:05" clousingdate="21.08.2019 19:00:04" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="22.08.2019 8:47:04" clousingdate="22.08.2019 18:04:53" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="22.08.2019 7:48:28" clousingdate="22.08.2019 19:00:14" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="23.08.2019 8:49:33" clousingdate="23.08.2019 18:00:05" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="23.08.2019 7:54:30" clousingdate="23.08.2019 19:01:34" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="24.08.2019 7:54:52" clousingdate="24.08.2019 17:00:43" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="25.08.2019 7:49:38" clousingdate="25.08.2019 13:22:32" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="26.08.2019 8:57:45" clousingdate="26.08.2019 18:00:04" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="26.08.2019 7:45:38" clousingdate="26.08.2019 19:00:02" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="27.08.2019 8:45:01" clousingdate="27.08.2019 17:56:49" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="27.08.2019 7:42:26" clousingdate="27.08.2019 19:00:02" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="28.08.2019 8:49:19" clousingdate="28.08.2019 18:01:06" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="28.08.2019 7:57:33" clousingdate="28.08.2019 19:00:32" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="29.08.2019 8:43:50" clousingdate="29.08.2019 18:00:18" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="29.08.2019 7:56:34" clousingdate="29.08.2019 19:01:09" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="30.08.2019 8:53:15" clousingdate="30.08.2019 18:00:08" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="30.08.2019 7:40:31" clousingdate="30.08.2019 19:00:03" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="31.08.2019 7:29:41" clousingdate="31.08.2019 17:00:03" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+	</Workshifts>
+</Upload>

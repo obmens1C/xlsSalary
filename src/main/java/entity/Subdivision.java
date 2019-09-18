@@ -10,24 +10,29 @@ import java.util.Objects;
 @Table(name = "mc_subdivision")
 public class Subdivision {
     @Id
-    @Column(name = "id", unique = true)
+    @Column(unique = true)
     private String id;
-    @Column(name = "name")
+    @Column
     private String name;
-
-    public Subdivision() {
-    }
+    @Column
+    private int proceeds;
 
     public Subdivision(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
+    public Subdivision(String id, String name, int proceeds) {
+        this.id = id;
+        this.name = name;
+        this.proceeds = proceeds;
+    }
+
     @Override
     public String toString() {
         return "Subdivision{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
+                ", proceeds=" + proceeds +
                 '}';
     }
 
@@ -39,7 +44,7 @@ public class Subdivision {
 
         Subdivision sbv = (Subdivision) obj;
 
-        return Objects.equals(name, sbv.name);
+        return Objects.equals(name, sbv.name) && proceeds == sbv.proceeds;
     }
 
     @Override
@@ -63,5 +68,13 @@ public class Subdivision {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getProceeds() {
+        return proceeds;
+    }
+
+    public void setProceeds(int proceeds) {
+        this.proceeds = proceeds;
     }
 }

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+@Deprecated
 @Entity
 @Table(name = "s_managers")
 public class Manager {

@@ -11,6 +11,7 @@ import javax.persistence.criteria.Root;
 import java.sql.SQLException;
 import java.util.Collection;
 
+@Deprecated
 public class ManagerDAOImpl implements ManagerDAO{
     private Session session;
 
