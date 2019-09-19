@@ -35,6 +35,7 @@ public class ParserFrom1C {
         document = documentBuilder.parse(new File("src\\main\\resources\\test.xml"));
     }
 
+
     public List<Administrator> parseAdministrators() {
         List<Administrator> administrators = new ArrayList<>();
 
@@ -103,6 +104,7 @@ public class ParserFrom1C {
         }
     }
 
+
     public List<Subdivision> parseSubdivisions() {
         List<Subdivision> subdivisions = new ArrayList<>();
 
@@ -112,11 +114,66 @@ public class ParserFrom1C {
             NamedNodeMap subdivisionNodeMap = subdivisionNode.getAttributes();
             String subdivisionUID = subdivisionNodeMap.getNamedItem("id").getNodeValue();
             String subdivisionName = subdivisionNodeMap.getNamedItem("name").getNodeValue();
-            Subdivision subdivision = new Subdivision(subdivisionUID, subdivisionName);
+            int subdivisionProceeds = Integer.parseInt(subdivisionNodeMap.getNamedItem("proceeds").getNodeValue().replaceAll("[\\s|\\u00A0]+", ""));
+            Subdivision subdivision = new Subdivision(subdivisionUID, subdivisionName, subdivisionProceeds);
             subdivisions.add(subdivision);
         }
         return subdivisions;
     }
+
+    public void addSubdivisionsToDatabase(List<Subdivision> subdivisions) {
+        Session session = null;
+
+        for (Subdivision subdivision : subdivisions) {
+            try {
+                Factory.getInstance().getSubdivisionDAO().addSubdivision(subdivision);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+            }
+        }
+    }
+
+    private Subdivision getSubdivisionById(String subdivisionId) {
+        Session session = null;
+
+        Subdivision subdivision = null;
+        try {
+            subdivision = Factory.getInstance().getSubdivisionDAO().getSubdivisionById(subdivisionId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return subdivision;
+    }
+
+    public void printSubdivisionsDatabase() {
+        Session session = null;
+        try {
+            Collection<Subdivision> subdivisions = Factory.getInstance().getSubdivisionDAO().getAllSubdivisions();
+            Iterator<Subdivision> subdivisionIterator = subdivisions.iterator();
+            System.out.println("list of subdivisions:");
+            while (subdivisionIterator.hasNext()) {
+                Subdivision subdivision = (Subdivision) subdivisionIterator.next();
+                System.out.println(subdivision);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
 
     /*
     public List<Currency> parseCurrencies() {
