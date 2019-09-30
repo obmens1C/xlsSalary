@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
 
+@Deprecated
 public class OrderDAOImpl implements OrderDAO {
 
     private Session session;

@@ -5,8 +5,8 @@
 		<Subdivision id="1c9863de-ef28-11e5-c480-c860000abaae" name="МедЦентр Гоголя" proceeds="564 495"/>
 	</Subdivisions>
 	<Salaries>
-		<Salary date="18.09.2019 14:13:10" subdivision="30d13f70-585b-11e4-a29f-c860000abaae" salary="15 000"/>
-		<Salary date="18.09.2019 14:13:10" subdivision="1c9863de-ef28-11e5-c480-c860000abaae" salary="15 000"/>
+		<Salary date="30.09.2019 14:19:29" subdivision_id="30d13f70-585b-11e4-a29f-c860000abaae" amount="15 000"/>
+		<Salary date="30.09.2019 14:19:29" subdivision_id="1c9863de-ef28-11e5-c480-c860000abaae" amount="15 000"/>
 	</Salaries>
 	<Administrators>
 		<Administrator id="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" name="Томилина Ирина Дмитриевна"/>

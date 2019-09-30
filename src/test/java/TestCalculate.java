@@ -16,6 +16,9 @@ public class TestCalculate {
         parser.addSubdivisionsToDatabase(parser.parseSubdivisions());
         parser.printSubdivisionsDatabase();
 
+        parser.addSalariesToDatabase(parser.parseSalaries());
+        parser.printSalariesDatabase();
+
         //parser.addCustomersToDatabase(parser.parseCustomers());
         //parser.printCustomersDatabase();
 

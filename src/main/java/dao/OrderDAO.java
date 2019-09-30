@@ -4,6 +4,7 @@ import entity.Order;
 import java.sql.SQLException;
 import java.util.Collection;
 
+@Deprecated
 public interface OrderDAO {
     public void addOrder(Order order) throws SQLException, Exception;
     public void updateOrder(Order order) throws SQLException, Exception;

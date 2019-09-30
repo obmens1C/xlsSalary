@@ -8,6 +8,7 @@ public class Factory {
     private static Factory instance = null;
     private static AdministratorDAO administratorDAO = null;
     private static SubdivisionDAO subdivisionDAO = null;
+    private static SalaryDAO salaryDAO = null;
 
     //private static ManagerDAO managerDAO = null;
     /*private static CustomerDAO customerDAO = null;
@@ -41,6 +42,13 @@ public class Factory {
         }
 
         return subdivisionDAO;
+    }
+
+    public SalaryDAO getSalaryDAO() {
+        if (salaryDAO == null) {
+            salaryDAO = new SalaryDAOImpl();
+        }
+        return salaryDAO;
     }
 
    /* public OrderDAO getOrderDAO() {

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Deprecated
 @Entity
 @Table(name = "s_orders")
 public class Order {

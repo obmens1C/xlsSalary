@@ -175,6 +175,86 @@ public class ParserFrom1C {
     }
 
 
+    public List<Salary> parseSalaries() {
+        List<Salary> salaries = new ArrayList<>();
+        NodeList salaryNodeList = document.getDocumentElement().getElementsByTagName("Salary");
+        for (int i = 0; i < salaryNodeList.getLength(); i++) {
+            Node salaryNode = salaryNodeList.item(i);
+            NamedNodeMap salaryNodeMap = salaryNode.getAttributes();
+
+            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm:ss");
+            LocalDate salaryDate = LocalDate.parse(salaryNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
+
+            String subdivisionId = salaryNodeMap.getNamedItem("subdivision_id").getNodeValue();
+            Subdivision salarySubdivision = getSubdivisionById(subdivisionId);
+            if (salarySubdivision == null) {
+                salarySubdivision = new Subdivision(subdivisionId, "not_found");
+                List<Subdivision> newSubdivisions = new ArrayList<>();
+                newSubdivisions.add(salarySubdivision);
+                addSubdivisionsToDatabase(newSubdivisions);
+            }
+
+            String textSalaryAmount = salaryNodeMap.getNamedItem("amount").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
+            Double amount  = Double.parseDouble(textSalaryAmount.replace(",", "."));
+            salaries.add(new Salary(salaryDate, subdivisionId, amount));
+        }
+        return salaries;
+    }
+
+    public void addSalariesToDatabase(List<Salary> salaries) {
+        Session session = null;
+
+        for (Salary salary : salaries) {
+            try {
+                Factory.getInstance().getSalaryDAO().addSalary(salary);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+            }
+        }
+    }
+
+    private Salary getSalaryById(String salaryId) {
+        Session session = null;
+
+        Salary salary = null;
+        try {
+            salary = Factory.getInstance().getSalaryDAO().getSalaryById(salaryId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return salary;
+    }
+
+    public void printSalariesDatabase() {
+        Session session = null;
+        try {
+            Collection<Salary> salaries = Factory.getInstance().getSalaryDAO().getAllSalaries();
+            Iterator<Salary> salaryIterator = salaries.iterator();
+            System.out.println("list of salaryes:");
+            while (salaryIterator.hasNext()) {
+                Salary salary = (Salary) salaryIterator.next();
+                System.out.println(salary);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
+
     /*
     public List<Currency> parseCurrencies() {
         List<Currency> currencies = new ArrayList<>();
@@ -223,44 +303,6 @@ public class ParserFrom1C {
             customers.add(customer);
         }
         return customers;
-    }
-
-    public List<Order> parseOrders() {
-        List<Order> orders = new ArrayList<>();
-        NodeList orderNodeList = document.getDocumentElement().getElementsByTagName("order");
-        for (int i = 0; i < orderNodeList.getLength(); i++) {
-            Node orderNode = orderNodeList.item(i);
-            NamedNodeMap orderNodeMap = orderNode.getAttributes();
-            String orderUID = orderNodeMap.getNamedItem("id").getNodeValue();
-            String orderNumber = orderNodeMap.getNamedItem("number").getNodeValue();
-
-            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm:ss");
-            LocalDate orderDate = LocalDate.parse(orderNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
-
-            String orderCustomerId = orderNodeMap.getNamedItem("customerid").getNodeValue();
-            Customer orderCustomer = getCustomerById(orderCustomerId);
-            String orderManagerId = orderNodeMap.getNamedItem("managerid").getNodeValue();
-            Manager orderManager = getManagerById(orderManagerId);
-            if (orderManager == null) {
-                String orderManagerName = orderNodeMap.getNamedItem("managername").getNodeValue();
-                orderManager = new Manager(orderManagerId, orderManagerName);
-                List<Manager> newManagers = new ArrayList<>();
-                newManagers.add(orderManager);
-                addManagersToDatabase(newManagers);
-            }
-
-            String textOrderSum = orderNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
-            double orderSum = Double.parseDouble(textOrderSum.replace(",", "."));
-            String orderCurrencyId = orderNodeMap.getNamedItem("curencyid").getNodeValue();
-            Currency orderCurrency = getCurrencyById(orderCurrencyId);
-
-            List<Payment> orderPayments = new ArrayList<>();
-            orderPayments.add(new Payment());
-            //  Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency);
-            Order order = new Order(orderUID, orderNumber, orderDate, orderCustomer, orderManager, orderSum, orderCurrency, orderPayments);
-            orders.add(order);
-        }
-        return orders;
     }
 
     public List<Payment> parsePayments() {
@@ -352,22 +394,6 @@ public class ParserFrom1C {
         }
     }
 
-    public void addOrdersToDatabase(List<Order> orders) {
-        Session session = null;
-
-        for (Order order : orders) {
-            try {
-                Factory.getInstance().getOrderDAO().addOrder(order);
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (session != null && session.isOpen()) {
-                    session.close();
-                }
-            }
-        }
-    }
-
     public void addPaymentsToDatabase(List<Payment> payments) {
         Session session = null;
 
@@ -430,22 +456,6 @@ public class ParserFrom1C {
             }
         }
         return customer;
-    }
-
-    private Order getOrderById(String orderId) {
-        Session session = null;
-
-        Order order = null;
-        try {
-            order = Factory.getInstance().getOrderDAO().getOrderById(orderId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return order;
     }
 
     public Payment getPaymentById(String paymentId) {
