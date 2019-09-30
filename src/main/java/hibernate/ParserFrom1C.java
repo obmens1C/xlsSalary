@@ -256,104 +256,19 @@ public class ParserFrom1C {
     }
 
 
+    public List<Workshift> parseWorkshifts() {
+        List<Workshift> workshifts = new ArrayList<>();
+        //TODO
 
-    /*
-    public List<Currency> parseCurrencies() {
-        List<Currency> currencies = new ArrayList<>();
-
-        NodeList currencyNodeList = document.getDocumentElement().getElementsByTagName("currency");
-        for (int i = 0; i < currencyNodeList.getLength(); i++) {
-            Node currencyNode = currencyNodeList.item(i);
-            NamedNodeMap currencyNodeMap = currencyNode.getAttributes();
-            String currencyUID = currencyNodeMap.getNamedItem("id").getNodeValue();
-            String currencyName = currencyNodeMap.getNamedItem("name").getNodeValue();
-            int currencyValue = Integer.parseInt(currencyNodeMap.getNamedItem("value").getNodeValue().replaceAll("[\\s|\\u00A0]+", ""));
-            Currency currency = new Currency(currencyUID, currencyName, currencyValue);
-            currencies.add(currency);
-        }
-        return currencies;
+        return workshifts;
     }
 
-    public List<Manager> parseManagers() {
-        List<Manager> managers = new ArrayList<>();
-
-        NodeList managerNodeList = document.getDocumentElement().getElementsByTagName("manager");
-        for (int i = 0; i < managerNodeList.getLength(); i++) {
-            Node managerNode = managerNodeList.item(i);
-            NamedNodeMap managerNodeMap = managerNode.getAttributes();
-            String managerUID = managerNodeMap.getNamedItem("id").getNodeValue();
-            String managerName = managerNodeMap.getNamedItem("name").getNodeValue();
-            int managerSalary = Integer.parseInt(managerNodeMap.getNamedItem("salary").getNodeValue().replaceAll("[\\s|\\u00A0]+", ""));
-            int managerPercent = Integer.parseInt(managerNodeMap.getNamedItem("percent").getNodeValue());
-            Manager manager = new Manager(managerUID, managerName, managerSalary, managerPercent);
-            managers.add(manager);
-        }
-        return managers;
-    }
-
-    public List<Customer> parseCustomers() {
-        List<Customer> customers = new ArrayList<>();
-
-        NodeList customerNodeList = document.getDocumentElement().getElementsByTagName("customer");
-        for (int i = 0; i < customerNodeList.getLength(); i++) {
-            Node customerNode = customerNodeList.item(i);
-            NamedNodeMap customerNodeMap = customerNode.getAttributes();
-            String customerUID = customerNodeMap.getNamedItem("id").getNodeValue();
-            String customerName = customerNodeMap.getNamedItem("name").getNodeValue();
-            int customerPercent = Integer.parseInt(customerNodeMap.getNamedItem("percent").getNodeValue());
-            Customer customer = new Customer(customerUID, customerName, customerPercent);
-            customers.add(customer);
-        }
-        return customers;
-    }
-
-    public List<Payment> parsePayments() {
-        List<Payment> payments = new ArrayList<>();
-        Element root = document.getDocumentElement();
-        NodeList paymentNodeList = root.getElementsByTagName("payment");
-        for (int i = 0; i < paymentNodeList.getLength(); i++) {
-            Node paymentNode = paymentNodeList.item(i);
-            NamedNodeMap paymentNodeMap = paymentNode.getAttributes();
-            String paymentUID = paymentNodeMap.getNamedItem("id").getNodeValue();
-            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm:ss");
-            LocalDate paymentDate = LocalDate.parse(paymentNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
-            String paymentNumber = paymentNodeMap.getNamedItem("number").getNodeValue();
-
-            double paymentSum = 0;
-
-            List<Order> paymentOrders = new ArrayList<>();
-
-            NodeList orderNodeList = paymentNode.getChildNodes();
-            for (int j = 0; j < orderNodeList.getLength(); j++) {
-                Node orderNode = orderNodeList.item(j);
-                if (orderNode.getNodeName().equals("paymentOrder")) {
-                    NamedNodeMap orderPaymentNamedNodeMap = orderNode.getAttributes();
-                    String paymentOrderId = orderPaymentNamedNodeMap.getNamedItem("id").getNodeValue();
-                    Order paymentOrder = getOrderById(paymentOrderId);
-                    if(paymentOrder == null) {
-                        paymentOrder = new Order(paymentOrderId);
-                    }
-                    paymentOrders.add(paymentOrder);
-
-                    String textPaymentSum = orderPaymentNamedNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
-                    paymentSum = Double.parseDouble(textPaymentSum.replace(",", "."));
-                }
-            }
-
-            String paymentCurrencyId = paymentNodeMap.getNamedItem("curencyid").getNodeValue();
-            Currency paymentCurrency = getCurrencyById(paymentCurrencyId);
-
-            payments.add(new Payment(paymentUID, paymentDate, paymentNumber, paymentOrders, paymentCurrency, paymentSum));
-        }
-        return payments;
-    }
-
-    public void addCurrenciesToDatabase(List<Currency> currencies) {
+    public void addWorkshiftsToDataBase(List<Workshift> workshifts) {
         Session session = null;
 
-        for (Currency currency : currencies) {
+        for (Workshift workshift : workshifts) {
             try {
-                Factory.getInstance().getCurrencyDAO().addCurrency(currency);
+                Factory.getInstance().getWorkshiftDAO().addWorkshift(workshift);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -364,60 +279,12 @@ public class ParserFrom1C {
         }
     }
 
-    public void addManagersToDatabase(List<Manager> managers) {
+    public Workshift getWorkshiftById(String workshiftId) {
         Session session = null;
 
-        for (Manager manager : managers) {
-            try {
-                Factory.getInstance().getManagerDAO().addManager(manager);
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (session != null && session.isOpen()) {
-                    session.close();
-                }
-            }
-        }
-    }
-
-    public void addCustomersToDatabase(List<Customer> customers) {
-        Session session = null;
-
-        for (Customer customer : customers) {
-            try {
-                Factory.getInstance().getCustomerDAO().addCustomer(customer);
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (session != null && session.isOpen()) {
-                    session.close();
-                }
-            }
-        }
-    }
-
-    public void addPaymentsToDatabase(List<Payment> payments) {
-        Session session = null;
-
-        for (Payment payment : payments) {
-            try {
-                Factory.getInstance().getPaymentDAO().addPayment(payment);
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (session != null && session.isOpen()) {
-                    session.close();
-                }
-            }
-        }
-    }
-
-    private Currency getCurrencyById(String currencyId) {
-        Session session = null;
-
-        Currency currency = null;
+        Workshift workshift = null;
         try {
-            currency = Factory.getInstance().getCurrencyDAO().getCurrencyById(currencyId);
+            workshift = Factory.getInstance().getWorkshiftDAO().getWorkshiftById(workshiftId);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -425,68 +292,18 @@ public class ParserFrom1C {
                 session.close();
             }
         }
-        return currency;
+        return workshift;
     }
 
-    private Manager getManagerById(String managerId) {
-        Session session = null;
-
-        Manager manager = null;
-        try {
-            manager = Factory.getInstance().getManagerDAO().getManagerById(managerId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return manager;
-    }
-
-    private Customer getCustomerById(String customreId) {
-        Session session = null;
-
-        Customer customer = null;
-        try {
-            customer = Factory.getInstance().getCustomerDAO().getCustomerById(customreId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return customer;
-    }
-
-    public Payment getPaymentById(String paymentId) {
-        Session session = null;
-
-        Payment payment = null;
-        try {
-            payment = Factory.getInstance().getPaymentDAO().getPaymentById(paymentId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return payment;
-    }
-
-    public void printCurrenciesDatabase() {
+    public void printWorkshiftsDatabase() {
         Session session = null;
         try {
-            Collection<Currency> currencies = Factory.getInstance().getCurrencyDAO().getAllCurrences();
-            Iterator<Currency> currencyIterator = currencies.iterator();
-            System.out.println("list of currencies:");
-            while (currencyIterator.hasNext()) {
-                Currency currency = (Currency) currencyIterator.next();
-                System.out.println(currency);
+            Collection<Workshift> workshifts = Factory.getInstance().getWorkshiftDAO().getAllWorkshifts();
+            Iterator<Workshift> workshiftIterator = workshifts.iterator();
+            System.out.println("list of workshifts:");
+            while (workshiftIterator.hasNext()) {
+                Workshift workshift = (Workshift) workshiftIterator.next();
+                System.out.println(workshift);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -499,87 +316,4 @@ public class ParserFrom1C {
         }
     }
 
-    public void printManagersDatabase() {
-        Session session = null;
-        try {
-            Collection<Manager> managers = Factory.getInstance().getManagerDAO().getAllManagers();
-            Iterator<Manager> managerIterator = managers.iterator();
-            System.out.println("list of managers:");
-            while (managerIterator.hasNext()) {
-                Manager manager = (Manager) managerIterator.next();
-                System.out.println(manager);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-    }
-
-    public void printCustomersDatabase() {
-        Session session = null;
-        try {
-            Collection<Customer> customers = Factory.getInstance().getCustomerDAO().getAllCustomers();
-            Iterator<Customer> customerIterator = customers.iterator();
-            System.out.println("list of customers:");
-            while (customerIterator.hasNext()) {
-                Customer customer = (Customer) customerIterator.next();
-                System.out.println(customer);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-    }
-
-    public void printOrdersDatabase() {
-        Session session = null;
-        try {
-            Collection<Order> orders = Factory.getInstance().getOrderDAO().getAllOrders();
-            Iterator<Order> orderIterator = orders.iterator();
-            System.out.println("list of orders:");
-            while (orderIterator.hasNext()) {
-                Order order = (Order) orderIterator.next();
-                System.out.println(order);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-    }
-
-    public void printPaymentsDatabase() {
-        Session session = null;
-        try {
-            Collection<Payment> payments = Factory.getInstance().getPaymentDAO().getAllPayments();
-            Iterator<Payment> paymentIterator = payments.iterator();
-            System.out.println("list of payments:");
-            while (paymentIterator.hasNext()) {
-                Payment payment = (Payment) paymentIterator.next();
-                System.out.println(payment);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-    } */
 }
