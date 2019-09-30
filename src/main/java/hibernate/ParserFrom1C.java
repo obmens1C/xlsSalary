@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -183,7 +184,7 @@ public class ParserFrom1C {
             NamedNodeMap salaryNodeMap = salaryNode.getAttributes();
 
             DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm:ss");
-            LocalDate salaryDate = LocalDate.parse(salaryNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
+            LocalDateTime salaryDate = LocalDateTime.parse(salaryNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
 
             String subdivisionId = salaryNodeMap.getNamedItem("subdivision_id").getNodeValue();
             Subdivision salarySubdivision = getSubdivisionById(subdivisionId);
@@ -196,7 +197,7 @@ public class ParserFrom1C {
 
             String textSalaryAmount = salaryNodeMap.getNamedItem("amount").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
             Double amount  = Double.parseDouble(textSalaryAmount.replace(",", "."));
-            salaries.add(new Salary(salaryDate, subdivisionId, amount));
+            salaries.add(new Salary(salaryDate, salarySubdivision, amount));
         }
         return salaries;
     }
@@ -238,7 +239,7 @@ public class ParserFrom1C {
         try {
             Collection<Salary> salaries = Factory.getInstance().getSalaryDAO().getAllSalaries();
             Iterator<Salary> salaryIterator = salaries.iterator();
-            System.out.println("list of salaryes:");
+            System.out.println("list of salaries:");
             while (salaryIterator.hasNext()) {
                 Salary salary = (Salary) salaryIterator.next();
                 System.out.println(salary);
@@ -253,6 +254,7 @@ public class ParserFrom1C {
             }
         }
     }
+
 
 
     /*

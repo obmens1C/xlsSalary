@@ -9,12 +9,7 @@ public class Factory {
     private static AdministratorDAO administratorDAO = null;
     private static SubdivisionDAO subdivisionDAO = null;
     private static SalaryDAO salaryDAO = null;
-
-    //private static ManagerDAO managerDAO = null;
-    /*private static CustomerDAO customerDAO = null;
-    private static OrderDAO orderDAO = null;
-    private static PaymentDAO paymentDAO = null;
-    private static CurrencyDAO currencyDAO = null;*/
+    private static WorkshiftDAO workshiftDAO = null;
 
     public static synchronized Factory getInstance() {
         if (instance == null) {
@@ -29,12 +24,13 @@ public class Factory {
         }
         return administratorDAO;
     }
-    /*public ManagerDAO getManagerDAO() {
-        if (managerDAO == null) {
-            managerDAO = new ManagerDAOImpl();
+
+    public WorkshiftDAO getWorkshiftDAO() {
+        if (workshiftDAO == null) {
+            workshiftDAO = new WorkshiftDAOImpl();
         }
-        return managerDAO;
-    }*/
+        return workshiftDAO;
+    }
 
     public SubdivisionDAO getSubdivisionDAO() {
         if (subdivisionDAO == null) {
@@ -50,25 +46,4 @@ public class Factory {
         }
         return salaryDAO;
     }
-
-   /* public OrderDAO getOrderDAO() {
-        if (orderDAO == null) {
-            orderDAO = new OrderDAOImpl();
-        }
-        return orderDAO;
-    }
-
-    public PaymentDAO getPaymentDAO() {
-        if (paymentDAO == null) {
-            paymentDAO = new PaymentDAOImpl();
-        }
-        return paymentDAO;
-    }
-
-    public CurrencyDAO getCurrencyDAO() {
-        if (currencyDAO == null) {
-            currencyDAO = new CurrencyDAOImpl();
-        }
-        return currencyDAO;
-    }*/
 }

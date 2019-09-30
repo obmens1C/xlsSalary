@@ -4,6 +4,7 @@ import entity.Currency;
 import java.sql.SQLException;
 import java.util.Collection;
 
+@Deprecated
 public interface CurrencyDAO {
     public void addCurrency(Currency currency) throws SQLException, Exception;
     public void updateCurrency(Currency currency) throws SQLException, Exception;

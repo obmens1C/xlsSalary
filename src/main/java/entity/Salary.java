@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -12,29 +13,34 @@ public class Salary {
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
     @Column
-    private LocalDate date;
-    @Column
-    private String subdivision_id;
+    private LocalDateTime dateTime;
+    @ManyToOne
+    @JoinColumn(name = "subdivision")
+    private Subdivision subdivision;
     @Column
     private double amount;
 
-    public Salary(LocalDate date, String subdivision_id) {
-        this.date = date;
-        this.subdivision_id = subdivision_id;
+    public Salary() {
+
+    }
+
+    public Salary(LocalDateTime dateTime, Subdivision subdivision) {
+        this.dateTime = dateTime;
+        this.subdivision = subdivision;
         this.amount = 0;
     }
 
-    public Salary(LocalDate date, String subdivision_id, double amount) {
-        this.date = date;
-        this.subdivision_id = subdivision_id;
+    public Salary(LocalDateTime dateTime, Subdivision subdivision, double amount) {
+        this.dateTime = dateTime;
+        this.subdivision = subdivision;
         this.amount = amount;
     }
 
     @Override
     public String toString() {
         return "Salary{" +
-                "date=" + date +
-                ", subdivision_id='" + subdivision_id + '\'' +
+                "date time=" + dateTime +
+                ", subdivision='" + subdivision + '\'' +
                 ", salary=" + amount +
                 '}';
     }
@@ -46,14 +52,14 @@ public class Salary {
         if (getClass() != obj.getClass()) return false;
 
         Salary slr = (Salary) obj;
-        return date == slr.date && amount == slr.amount && Objects.equals(subdivision_id, slr.subdivision_id);
+        return Objects.equals(dateTime, slr.dateTime) && amount == slr.amount && Objects.equals(subdivision, slr.subdivision);
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (subdivision_id != null ? subdivision_id.hashCode() : 0);
+        result = 31 * result + (dateTime != null ? dateTime.hashCode() : 0);
+        result = 31 * result + (subdivision != null ? subdivision.hashCode() : 0);
         return result;
     }
 
@@ -65,20 +71,20 @@ public class Salary {
         this.id = id;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDateTime getDate() {
+        return dateTime;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDate(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public String getSubdivision_id() {
-        return subdivision_id;
+    public Subdivision getSubdivision() {
+        return subdivision;
     }
 
-    public void setSubdivision_id(String subdivision_id) {
-        this.subdivision_id = subdivision_id;
+    public void setSubdivision(Subdivision subdivision) {
+        this.subdivision = subdivision;
     }
 
     public double getAmount() {

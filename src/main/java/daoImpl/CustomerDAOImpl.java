@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
 
+@Deprecated
 public class CustomerDAOImpl implements CustomerDAO{
     private Session session;
 

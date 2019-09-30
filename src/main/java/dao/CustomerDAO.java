@@ -4,6 +4,7 @@ import entity.Customer;
 import java.sql.SQLException;
 import java.util.Collection;
 
+@Deprecated
 public interface CustomerDAO {
     public void addCustomer(Customer customer) throws SQLException, Exception;
     public void updateCustomer(Customer customer) throws SQLException, Exception;

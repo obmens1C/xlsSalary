@@ -17,6 +17,9 @@ public class Subdivision {
     @Column
     private int proceeds;
 
+    public Subdivision() {
+    }
+
     public Subdivision(String id, String name) {
         this.id = id;
         this.name = name;

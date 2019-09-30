@@ -4,6 +4,7 @@ import entity.Payment;
 import java.sql.SQLException;
 import java.util.Collection;
 
+@Deprecated
 public interface PaymentDAO {
     public void addPayment(Payment payment) throws SQLException, Exception;
     public void updatePayment(Payment payment) throws SQLException, Exception;

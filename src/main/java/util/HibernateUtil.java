@@ -14,12 +14,7 @@ public class HibernateUtil {
             cfgHibernate.addAnnotatedClass(Administrator.class);
             cfgHibernate.addAnnotatedClass(Subdivision.class);
             cfgHibernate.addAnnotatedClass(Salary.class);
-           /* cfgHibernate.addAnnotatedClass(Manager.class);
-            cfgHibernate.addAnnotatedClass(Customer.class);
-            cfgHibernate.addAnnotatedClass(Order.class);
-            cfgHibernate.addAnnotatedClass(Payment.class);
-            cfgHibernate.addAnnotatedClass(Currency.class);
-            */
+            cfgHibernate.addAnnotatedClass(Workshift.class);
 
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfgHibernate.getProperties());
             sessionFactory = cfgHibernate.buildSessionFactory(builder.build());

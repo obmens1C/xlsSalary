@@ -3,6 +3,7 @@ package entity;
 import javax.persistence.*;
 import java.util.Objects;
 
+@Deprecated
 @Entity
 @Table(name = "s_customers")
 public class Customer {

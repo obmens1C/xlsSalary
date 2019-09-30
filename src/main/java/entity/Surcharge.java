@@ -2,6 +2,7 @@ package entity;
 
 import java.time.LocalDate;
 
+@Deprecated
 abstract class Surcharge {
     private static int id = 0;
 

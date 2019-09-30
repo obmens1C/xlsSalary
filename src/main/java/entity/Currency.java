@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
 
+@Deprecated
 @Entity
 @Table(name = "s_currencies")
 public class Currency {
