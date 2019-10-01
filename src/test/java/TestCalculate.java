@@ -19,13 +19,9 @@ public class TestCalculate {
         parser.addSalariesToDatabase(parser.parseSalaries());
         parser.printSalariesDatabase();
 
-        //parser.addCustomersToDatabase(parser.parseCustomers());
-        //parser.printCustomersDatabase();
+        parser.addWorkshiftsToDataBase(parser.parseWorkshifts());
+        parser.printWorkshiftsDatabase();
 
-        //parser.addOrdersToDatabase(parser.parseOrders());
-    //    parser.printOrdersDatabase();
-
-        //parser.addPaymentsToDatabase(parser.parsePayments());
         System.exit(0);
     }
 }

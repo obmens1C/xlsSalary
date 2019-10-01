@@ -3,19 +3,17 @@ package entity;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "mc_workshift")
 public class Workshift {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "subdivision")
     private Subdivision subdivision;
+    @Id
     @Column
     private LocalDateTime oppenningdate;
     @Column
     private LocalDateTime closingdate;
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "administrator")
     private Administrator administrator;
     @Column
@@ -43,7 +41,6 @@ public class Workshift {
 
         Workshift workshift = (Workshift) o;
 
-        if (id != null ? !id.equals(workshift.id) : workshift.id != null) return false;
         if (subdivision != null ? !subdivision.equals(workshift.subdivision) : workshift.subdivision != null)
             return false;
         if (oppenningdate != null ? !oppenningdate.equals(workshift.oppenningdate) : workshift.oppenningdate != null)
@@ -58,8 +55,7 @@ public class Workshift {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (subdivision != null ? subdivision.hashCode() : 0);
+        int result = (subdivision != null ? subdivision.hashCode() : 0);
         result = 31 * result + (oppenningdate != null ? oppenningdate.hashCode() : 0);
         result = 31 * result + (closingdate != null ? closingdate.hashCode() : 0);
         result = 31 * result + (administrator != null ? administrator.hashCode() : 0);
@@ -76,14 +72,6 @@ public class Workshift {
                 ", administrator=" + administrator +
                 ", status='" + status + '\'' +
                 '}';
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Subdivision getSubdivision() {

@@ -188,12 +188,12 @@ public class ParserFrom1C {
 
             String subdivisionId = salaryNodeMap.getNamedItem("subdivision_id").getNodeValue();
             Subdivision salarySubdivision = getSubdivisionById(subdivisionId);
-            if (salarySubdivision == null) {
+           /* if (salarySubdivision == null) {
                 salarySubdivision = new Subdivision(subdivisionId, "not_found");
                 List<Subdivision> newSubdivisions = new ArrayList<>();
                 newSubdivisions.add(salarySubdivision);
                 addSubdivisionsToDatabase(newSubdivisions);
-            }
+            }*/
 
             String textSalaryAmount = salaryNodeMap.getNamedItem("amount").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
             Double amount  = Double.parseDouble(textSalaryAmount.replace(",", "."));
@@ -258,7 +258,39 @@ public class ParserFrom1C {
 
     public List<Workshift> parseWorkshifts() {
         List<Workshift> workshifts = new ArrayList<>();
-        //TODO
+
+        NodeList workshiftNodeList = document.getDocumentElement().getElementsByTagName("Workshift");
+        for (int i = 0; i <workshiftNodeList.getLength(); i++) {
+            Node workshiftNode = workshiftNodeList.item(i);
+            NamedNodeMap workshiftNodeMap = workshiftNode.getAttributes();
+
+            String subdivisionId = workshiftNodeMap.getNamedItem("subdivision").getNodeValue();
+            Subdivision workshiftSubdivision = getSubdivisionById(subdivisionId);
+          /*  if (workshiftSubdivision == null) {
+                workshiftSubdivision = new Subdivision(subdivisionId, "not_found");
+                List<Subdivision> newSubdivisions = new ArrayList<>();
+                newSubdivisions.add(workshiftSubdivision);
+                addSubdivisionsToDatabase(newSubdivisions);
+            }*/
+
+            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm:ss");
+            LocalDateTime workshiftOpenningDate = LocalDateTime.parse(workshiftNodeMap.getNamedItem("openningdate").getNodeValue(), customFormatter);
+
+            LocalDateTime workshiftClousingDate = LocalDateTime.parse(workshiftNodeMap.getNamedItem("clousingdate").getNodeValue(), customFormatter);
+
+            String employeeId = workshiftNodeMap.getNamedItem("employee").getNodeValue();
+            Administrator workshiftAdministrator = getAdministratorById(employeeId);
+            /*if (workshiftSubdivision == null) {
+                workshiftSubdivision = new Subdivision(subdivisionId, "not_found");
+                List<Subdivision> newSubdivisions = new ArrayList<>();
+                newSubdivisions.add(workshiftSubdivision);
+                addSubdivisionsToDatabase(newSubdivisions);
+            }*/
+
+            String workshiftStatus = workshiftNodeMap.getNamedItem("status").getNodeValue();
+
+            workshifts.add(new Workshift(workshiftSubdivision, workshiftOpenningDate, workshiftClousingDate, workshiftAdministrator, workshiftStatus));
+        }
 
         return workshifts;
     }
