@@ -1,72 +1,76 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Upload>
 	<Subdivisions>
-		<Subdivision id="30d13f70-585b-11e4-a29f-c860000abaae" name="МедЦентр Чичерина" proceeds="170 040"/>
-		<Subdivision id="1c9863de-ef28-11e5-c480-c860000abaae" name="МедЦентр Гоголя" proceeds="564 495"/>
+		<Subdivision id="30d13f70-585b-11e4-a29f-c860000abaae" name="МедЦентр Чичерина"/>
+		<Subdivision id="1c9863de-ef28-11e5-c480-c860000abaae" name="МедЦентр Гоголя"/>
 	</Subdivisions>
+	<Proceeds>
+		<Proceed date="30.09.2019" subdivision_id="30d13f70-585b-11e4-a29f-c860000abaae" sum="131 440"/>
+		<Proceed date="30.09.2019" subdivision_id="1c9863de-ef28-11e5-c480-c860000abaae" sum="556 910"/>
+	</Proceeds>
 	<Salaries>
-		<Salary date="30.09.2019 14:19:29" subdivision_id="30d13f70-585b-11e4-a29f-c860000abaae" amount="15 000"/>
-		<Salary date="30.09.2019 14:19:29" subdivision_id="1c9863de-ef28-11e5-c480-c860000abaae" amount="15 000"/>
+		<Salary date="14.09.2019" subdivision_id="30d13f70-585b-11e4-a29f-c860000abaae" amount="15 000"/>
+		<Salary date="14.09.2019" subdivision_id="1c9863de-ef28-11e5-c480-c860000abaae" amount="15 000"/>
 	</Salaries>
 	<Administrators>
+		<Administrator id="3163a916-dfa4-11e9-609e-a4bf011ca70c" name="Гребенникова Ольга Владимировна"/>
 		<Administrator id="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" name="Томилина Ирина Дмитриевна"/>
-		<Administrator id="2737a19e-a811-11e7-2f88-a4bf011ca70c" name="Чепурнова Елена Борисовна"/>
 		<Administrator id="7d90f718-ef24-11e5-c480-c860000abaae" name="Давыдова Надежда Николаевна"/>
 		<Administrator id="34796a8a-1358-11e6-919d-c860000abaae" name="Тютикова Елена Викторовна"/>
 	</Administrators>
 	<Workshifts>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="01.08.2019 8:51:14" clousingdate="01.08.2019 18:17:57" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="01.08.2019 7:52:38" clousingdate="01.08.2019 19:00:52" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="02.08.2019 8:47:13" clousingdate="02.08.2019 18:00:03" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="02.08.2019 7:58:27" clousingdate="02.08.2019 19:00:05" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="03.08.2019 8:00:19" clousingdate="03.08.2019 17:00:22" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="04.08.2019 7:50:50" clousingdate="04.08.2019 13:35:50" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="05.08.2019 8:48:30" clousingdate="05.08.2019 18:00:03" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="05.08.2019 7:52:08" clousingdate="05.08.2019 18:57:30" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="06.08.2019 8:44:53" clousingdate="06.08.2019 18:01:19" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="06.08.2019 7:59:21" clousingdate="06.08.2019 19:00:05" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="07.08.2019 8:43:40" clousingdate="07.08.2019 18:00:16" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="07.08.2019 7:37:36" clousingdate="07.08.2019 19:00:02" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="08.08.2019 8:42:38" clousingdate="08.08.2019 18:00:34" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="08.08.2019 7:51:54" clousingdate="08.08.2019 19:01:11" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="09.08.2019 8:41:46" clousingdate="09.08.2019 18:01:17" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="09.08.2019 7:53:54" clousingdate="09.08.2019 19:03:40" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="10.08.2019 8:03:48" clousingdate="10.08.2019 17:00:37" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="11.08.2019 7:47:38" clousingdate="11.08.2019 13:25:25" employee="2737a19e-a811-11e7-2f88-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="12.08.2019 8:47:24" clousingdate="12.08.2019 18:00:05" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="12.08.2019 7:57:13" clousingdate="12.08.2019 19:00:02" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="13.08.2019 8:46:47" clousingdate="13.08.2019 18:00:28" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="13.08.2019 8:07:08" clousingdate="13.08.2019 19:00:01" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="14.08.2019 8:50:17" clousingdate="14.08.2019 18:03:49" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="14.08.2019 7:23:31" clousingdate="14.08.2019 19:01:42" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="15.08.2019 8:50:25" clousingdate="15.08.2019 18:06:36" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="15.08.2019 7:49:14" clousingdate="15.08.2019 19:17:07" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="16.08.2019 8:36:52" clousingdate="16.08.2019 18:00:14" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="16.08.2019 7:37:39" clousingdate="16.08.2019 19:00:08" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="17.08.2019 7:42:19" clousingdate="17.08.2019 17:00:19" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="18.08.2019 7:46:36" clousingdate="18.08.2019 13:00:10" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="19.08.2019 8:45:58" clousingdate="19.08.2019 17:59:18" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="19.08.2019 7:51:44" clousingdate="19.08.2019 19:00:51" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="20.08.2019 8:41:07" clousingdate="20.08.2019 18:00:02" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="20.08.2019 7:48:22" clousingdate="20.08.2019 19:02:49" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="21.08.2019 8:46:42" clousingdate="21.08.2019 18:07:36" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="21.08.2019 7:45:05" clousingdate="21.08.2019 19:00:04" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="22.08.2019 8:47:04" clousingdate="22.08.2019 18:04:53" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="22.08.2019 7:48:28" clousingdate="22.08.2019 19:00:14" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="23.08.2019 8:49:33" clousingdate="23.08.2019 18:00:05" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="23.08.2019 7:54:30" clousingdate="23.08.2019 19:01:34" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="24.08.2019 7:54:52" clousingdate="24.08.2019 17:00:43" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="25.08.2019 7:49:38" clousingdate="25.08.2019 13:22:32" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="26.08.2019 8:57:45" clousingdate="26.08.2019 18:00:04" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="26.08.2019 7:45:38" clousingdate="26.08.2019 19:00:02" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="27.08.2019 8:45:01" clousingdate="27.08.2019 17:56:49" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="27.08.2019 7:42:26" clousingdate="27.08.2019 19:00:02" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="28.08.2019 8:49:19" clousingdate="28.08.2019 18:01:06" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="28.08.2019 7:57:33" clousingdate="28.08.2019 19:00:32" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="29.08.2019 8:43:50" clousingdate="29.08.2019 18:00:18" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="29.08.2019 7:56:34" clousingdate="29.08.2019 19:01:09" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="30.08.2019 8:53:15" clousingdate="30.08.2019 18:00:08" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="30.08.2019 7:40:31" clousingdate="30.08.2019 19:00:03" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
-		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="31.08.2019 7:29:41" clousingdate="31.08.2019 17:00:03" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="01.09.2019 7:58:01" clousingdate="01.09.2019 13:15:12" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="02.09.2019 7:49:35" clousingdate="02.09.2019 19:00:49" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="03.09.2019 8:47:07" clousingdate="03.09.2019 18:02:05" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="03.09.2019 7:53:35" clousingdate="03.09.2019 19:00:10" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="04.09.2019 8:42:04" clousingdate="04.09.2019 17:57:54" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="04.09.2019 7:32:41" clousingdate="04.09.2019 19:00:02" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="05.09.2019 8:45:00" clousingdate="05.09.2019 17:51:09" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="05.09.2019 7:48:05" clousingdate="05.09.2019 19:00:03" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="06.09.2019 8:34:55" clousingdate="06.09.2019 17:57:10" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="06.09.2019 7:55:38" clousingdate="06.09.2019 19:00:14" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="07.09.2019 7:48:30" clousingdate="07.09.2019 17:00:45" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="08.09.2019 7:45:56" clousingdate="08.09.2019 13:06:05" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="09.09.2019 8:40:30" clousingdate="09.09.2019 17:59:45" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="09.09.2019 7:39:34" clousingdate="09.09.2019 19:00:03" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="10.09.2019 8:44:38" clousingdate="10.09.2019 17:59:16" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="10.09.2019 7:59:56" clousingdate="10.09.2019 19:00:01" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="11.09.2019 8:44:35" clousingdate="11.09.2019 18:00:11" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="11.09.2019 7:47:24" clousingdate="11.09.2019 19:01:04" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="12.09.2019 8:46:37" clousingdate="12.09.2019 18:00:36" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="12.09.2019 7:50:30" clousingdate="12.09.2019 19:02:32" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="13.09.2019 8:46:55" clousingdate="13.09.2019 17:57:07" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="13.09.2019 8:05:22" clousingdate="13.09.2019 19:00:02" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="14.09.2019 7:48:31" clousingdate="14.09.2019 17:00:01" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="15.09.2019 7:47:54" clousingdate="15.09.2019 13:00:03" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="16.09.2019 8:52:58" clousingdate="16.09.2019 18:01:37" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="16.09.2019 7:53:00" clousingdate="16.09.2019 19:00:07" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="17.09.2019 8:42:46" clousingdate="17.09.2019 18:00:03" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="17.09.2019 7:54:51" clousingdate="17.09.2019 19:02:38" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="18.09.2019 8:57:39" clousingdate="18.09.2019 17:58:32" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="18.09.2019 7:42:27" clousingdate="18.09.2019 19:01:29" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="19.09.2019 8:51:02" clousingdate="19.09.2019 18:03:05" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="19.09.2019 8:10:54" clousingdate="19.09.2019 19:00:37" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="20.09.2019 8:51:35" clousingdate="20.09.2019 18:03:48" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="20.09.2019 7:38:44" clousingdate="20.09.2019 19:00:01" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="21.09.2019 7:50:33" clousingdate="21.09.2019 17:00:16" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="22.09.2019 7:50:14" clousingdate="22.09.2019 14:14:49" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="23.09.2019 8:51:16" clousingdate="23.09.2019 17:59:29" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="23.09.2019 7:51:19" clousingdate="23.09.2019 19:15:31" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="24.09.2019 8:49:43" clousingdate="24.09.2019 18:03:35" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="24.09.2019 7:39:58" clousingdate="24.09.2019 19:00:02" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="25.09.2019 8:47:21" clousingdate="25.09.2019 17:58:34" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="25.09.2019 7:53:46" clousingdate="25.09.2019 19:08:53" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="26.09.2019 8:46:21" clousingdate="26.09.2019 18:00:46" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="26.09.2019 7:47:01" clousingdate="26.09.2019 19:00:18" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="26.09.2019 8:00:42" clousingdate="26.09.2019 17:00:38" employee="3163a916-dfa4-11e9-609e-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="27.09.2019 8:53:39" clousingdate="27.09.2019 17:59:23" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="27.09.2019 7:40:31" clousingdate="27.09.2019 19:00:03" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="27.09.2019 7:57:51" clousingdate="27.09.2019 17:03:12" employee="3163a916-dfa4-11e9-609e-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="28.09.2019 7:53:42" clousingdate="28.09.2019 17:00:03" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="29.09.2019 7:51:07" clousingdate="29.09.2019 13:00:41" employee="7d90f718-ef24-11e5-c480-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="30d13f70-585b-11e4-a29f-c860000abaae" openningdate="30.09.2019 8:48:12" clousingdate="30.09.2019 18:01:06" employee="d2ce00d0-90cb-11e9-1182-a4bf011ca70c" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="30.09.2019 7:51:17" clousingdate="30.09.2019 19:00:35" employee="34796a8a-1358-11e6-919d-c860000abaae" status="Закрыта"/>
+		<Workshift subdivision="1c9863de-ef28-11e5-c480-c860000abaae" openningdate="30.09.2019 8:43:53" clousingdate="30.09.2019 17:05:40" employee="3163a916-dfa4-11e9-609e-a4bf011ca70c" status="Закрыта"/>
 	</Workshifts>
 </Upload>

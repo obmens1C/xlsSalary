@@ -19,6 +19,9 @@ public class Workshift {
     @Column
     private String status;
 
+    public Workshift() {
+    }
+
     public Workshift(Subdivision subdivision, LocalDateTime oppenningdate, Administrator administrator, String status) {
         this.subdivision = subdivision;
         this.oppenningdate = oppenningdate;

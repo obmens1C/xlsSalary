@@ -115,8 +115,7 @@ public class ParserFrom1C {
             NamedNodeMap subdivisionNodeMap = subdivisionNode.getAttributes();
             String subdivisionUID = subdivisionNodeMap.getNamedItem("id").getNodeValue();
             String subdivisionName = subdivisionNodeMap.getNamedItem("name").getNodeValue();
-            int subdivisionProceeds = Integer.parseInt(subdivisionNodeMap.getNamedItem("proceeds").getNodeValue().replaceAll("[\\s|\\u00A0]+", ""));
-            Subdivision subdivision = new Subdivision(subdivisionUID, subdivisionName, subdivisionProceeds);
+            Subdivision subdivision = new Subdivision(subdivisionUID, subdivisionName);
             subdivisions.add(subdivision);
         }
         return subdivisions;
@@ -176,6 +175,80 @@ public class ParserFrom1C {
     }
 
 
+    public List<Proceed> parseProceeds() {
+        List<Proceed> proceeds = new ArrayList<>();
+
+        NodeList proceedNodeList = document.getDocumentElement().getElementsByTagName("Proceed");
+        for (int i = 0; i < proceedNodeList.getLength(); i++) {
+            Node proceedNode = proceedNodeList.item(i);
+            NamedNodeMap proceedNodeMap = proceedNode.getAttributes();
+            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            LocalDate proceedDate = LocalDate.parse(proceedNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
+            String subdivisionId = proceedNodeMap.getNamedItem("subdivision_id").getNodeValue();
+            Subdivision proceedSubdivision = getSubdivisionById(subdivisionId);
+            String textSalarySum = proceedNodeMap.getNamedItem("sum").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
+            int proceedSum  = Integer.parseInt(textSalarySum.replace(",", "."));
+            String proceedUID = proceedNodeMap.getNamedItem("subdivision_id").getNodeValue() + textSalarySum;
+            Proceed proceed = new Proceed(proceedUID, proceedDate, proceedSubdivision, proceedSum);
+            proceeds.add(proceed);
+        }
+        return proceeds;
+    }
+
+    public void addProceedsToDatabase(List<Proceed> proceeds) {
+        Session session = null;
+
+        for (Proceed proceed : proceeds) {
+            try {
+                Factory.getInstance().getProceedDAO().addProceed(proceed);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+            }
+        }
+    }
+
+    private Proceed getProceedById(String proceedId) {
+        Session session = null;
+
+        Proceed proceed = null;
+        try {
+            proceed = Factory.getInstance().getProceedDAO().getProceedById(proceedId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return proceed;
+    }
+
+    public void printProceedDatabase() {
+        Session session = null;
+        try {
+            Collection<Proceed> proceeds = Factory.getInstance().getProceedDAO().getAllProceeds();
+            Iterator<Proceed> proceedIterator = proceeds.iterator();
+            System.out.println("list of proceeds:");
+            while (proceedIterator.hasNext()) {
+                Proceed proceed = (Proceed) proceedIterator.next();
+                System.out.println(proceed);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
+
     public List<Salary> parseSalaries() {
         List<Salary> salaries = new ArrayList<>();
         NodeList salaryNodeList = document.getDocumentElement().getElementsByTagName("Salary");
@@ -183,8 +256,8 @@ public class ParserFrom1C {
             Node salaryNode = salaryNodeList.item(i);
             NamedNodeMap salaryNodeMap = salaryNode.getAttributes();
 
-            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm:ss");
-            LocalDateTime salaryDate = LocalDateTime.parse(salaryNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
+            DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            LocalDate salaryDate = LocalDate.parse(salaryNodeMap.getNamedItem("date").getNodeValue(), customFormatter);
 
             String subdivisionId = salaryNodeMap.getNamedItem("subdivision_id").getNodeValue();
             Subdivision salarySubdivision = getSubdivisionById(subdivisionId);
@@ -197,7 +270,8 @@ public class ParserFrom1C {
 
             String textSalaryAmount = salaryNodeMap.getNamedItem("amount").getNodeValue().replaceAll("[\\s|\\u00A0]+", "");
             Double amount  = Double.parseDouble(textSalaryAmount.replace(",", "."));
-            salaries.add(new Salary(salaryDate, salarySubdivision, amount));
+            String salaryUID = salaryNodeMap.getNamedItem("subdivision_id").getNodeValue() + salaryDate.toString().replace(".","");
+            salaries.add(new Salary(salaryUID, salaryDate, salarySubdivision, amount));
         }
         return salaries;
     }
@@ -295,7 +369,7 @@ public class ParserFrom1C {
         return workshifts;
     }
 
-    public void addWorkshiftsToDataBase(List<Workshift> workshifts) {
+    public void addWorkshiftsToDatabase(List<Workshift> workshifts) {
         Session session = null;
 
         for (Workshift workshift : workshifts) {

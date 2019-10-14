@@ -10,10 +10,10 @@ import java.util.UUID;
 @Table(name = "mc_salary")
 public class Salary {
     @Id
-    @GeneratedValue
-    private UUID id;
+    @Column(unique = true)
+    private String id;
     @Column
-    private LocalDateTime dateTime;
+    private LocalDate date;
     @ManyToOne
     @JoinColumn(name = "subdivision")
     private Subdivision subdivision;
@@ -24,14 +24,21 @@ public class Salary {
 
     }
 
-    public Salary(LocalDateTime dateTime, Subdivision subdivision) {
-        this.dateTime = dateTime;
+    public Salary(LocalDate date, Subdivision subdivision) {
+        this.date = date;
         this.subdivision = subdivision;
         this.amount = 0;
     }
 
-    public Salary(LocalDateTime dateTime, Subdivision subdivision, double amount) {
-        this.dateTime = dateTime;
+    public Salary(LocalDate date, Subdivision subdivision, double amount) {
+        this.date = date;
+        this.subdivision = subdivision;
+        this.amount = amount;
+    }
+
+    public Salary(String id, LocalDate date, Subdivision subdivision, double amount) {
+        this.id = id;
+        this.date = date;
         this.subdivision = subdivision;
         this.amount = amount;
     }
@@ -39,7 +46,7 @@ public class Salary {
     @Override
     public String toString() {
         return "Salary{" +
-                "date time=" + dateTime +
+                "date =" + date +
                 ", subdivision='" + subdivision + '\'' +
                 ", salary=" + amount +
                 '}';
@@ -52,31 +59,23 @@ public class Salary {
         if (getClass() != obj.getClass()) return false;
 
         Salary slr = (Salary) obj;
-        return Objects.equals(dateTime, slr.dateTime) && amount == slr.amount && Objects.equals(subdivision, slr.subdivision);
+        return Objects.equals(date, slr.date) && amount == slr.amount && Objects.equals(subdivision, slr.subdivision);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (dateTime != null ? dateTime.hashCode() : 0);
+        int result = 0;
+        result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (subdivision != null ? subdivision.hashCode() : 0);
         return result;
     }
 
-    public UUID getId() {
-        return id;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getDate() {
-        return dateTime;
-    }
-
-    public void setDate(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public Subdivision getSubdivision() {

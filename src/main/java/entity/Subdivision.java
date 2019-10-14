@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -14,8 +15,6 @@ public class Subdivision {
     private String id;
     @Column
     private String name;
-    @Column
-    private int proceeds;
 
     public Subdivision() {
     }
@@ -25,17 +24,10 @@ public class Subdivision {
         this.name = name;
     }
 
-    public Subdivision(String id, String name, int proceeds) {
-        this.id = id;
-        this.name = name;
-        this.proceeds = proceeds;
-    }
-
     @Override
     public String toString() {
         return "Subdivision{" +
                 "name='" + name + '\'' +
-                ", proceeds=" + proceeds +
                 '}';
     }
 
@@ -47,7 +39,7 @@ public class Subdivision {
 
         Subdivision sbv = (Subdivision) obj;
 
-        return Objects.equals(name, sbv.name) && proceeds == sbv.proceeds;
+        return Objects.equals(name, sbv.name);
     }
 
     @Override
@@ -73,11 +65,4 @@ public class Subdivision {
         this.name = name;
     }
 
-    public int getProceeds() {
-        return proceeds;
-    }
-
-    public void setProceeds(int proceeds) {
-        this.proceeds = proceeds;
-    }
 }

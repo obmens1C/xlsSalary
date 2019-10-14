@@ -13,6 +13,7 @@ public class HibernateUtil {
             Configuration cfgHibernate = new Configuration().configure();
             cfgHibernate.addAnnotatedClass(Administrator.class);
             cfgHibernate.addAnnotatedClass(Subdivision.class);
+            cfgHibernate.addAnnotatedClass(Proceed.class);
             cfgHibernate.addAnnotatedClass(Salary.class);
             cfgHibernate.addAnnotatedClass(Workshift.class);
 

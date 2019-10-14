@@ -12,6 +12,9 @@ public class Administrator {
     @Column
     private String name;
 
+    public Administrator() {
+    }
+
     public Administrator(String id, String name) {
         this.id = id;
         this.name = name;

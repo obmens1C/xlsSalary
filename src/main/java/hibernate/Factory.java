@@ -10,6 +10,7 @@ public class Factory {
     private static SubdivisionDAO subdivisionDAO = null;
     private static SalaryDAO salaryDAO = null;
     private static WorkshiftDAO workshiftDAO = null;
+    private static ProceedDAO proceedDAO = null;
 
     public static synchronized Factory getInstance() {
         if (instance == null) {
@@ -45,5 +46,12 @@ public class Factory {
             salaryDAO = new SalaryDAOImpl();
         }
         return salaryDAO;
+    }
+
+    public ProceedDAO getProceedDAO() {
+        if (proceedDAO == null) {
+            proceedDAO = new ProceedDAOImpl();
+        }
+        return proceedDAO;
     }
 }
